@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Post</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Criar Novo Post</h1>
+    <nav>
+      <a href="index.html">Início</a> | 
+      <a href="login.html">Login</a> | 
+      <a href="register.html">Registrar</a>
+    </nav>
+  </header>
+
+  <main>
+    <form id="create-post-form">
+      <label for="title">Título:</label>
+      <input type="text" id="title" name="title" required>
+      
+      <label for="content">Conteúdo:</label>
+      <textarea id="content" name="content" required></textarea>
+      
+      <button type="submit">Criar Post</button>
+    </form>
+  </main>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
