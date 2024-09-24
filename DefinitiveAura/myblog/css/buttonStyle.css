@@ -1,0 +1,21 @@
+.botao {
+    background-color: #007bff; /* Azul */
+    align-items: right;
+    color: #fff; /* Texto branco */
+    border: none; /* Sem borda */
+    font-size: 14px; /* Tamanho da fonte menor */
+    border-radius: 5px;
+    cursor: pointer; /* Cursor como ponteiro */
+    transition: background-color 0.3s ease; /* Transição suave para hover */ /* Permite margens e espaçamentos */
+    width: 10vw;
+    height: 2vw;
+
+}
+
+.botao:hover {
+    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+.botao:active {
+    background-color: #004085; /* Azul ainda mais escuro quando clicado */
+}

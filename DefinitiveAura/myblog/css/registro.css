@@ -1,0 +1,110 @@
+/* Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4b6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('DefinitiveAura/myblog/images/sise.jpg'); /* Corrigido */
+    background-size: cover; /* Garante que a imagem cubra toda a área */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+}
+
+
+/* Estilos do Cabeçalho */
+.header_registro {
+    background-color: #ffffff;
+    height: 90px; /* Diminui a altura do cabeçalho */
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Reduz a altura do padding */
+}
+
+.logos img {
+    margin: 0px;
+}
+
+/* Botão de Alternância (Login/Registro) */
+.switch-button {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.switch-button:hover {
+    background-color: #004495;
+}
+
+/* Container principal */
+.form-container {
+    background-color: white;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 100px; /* Espaço para o cabeçalho */
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button.botao {
+    width: 100%;
+    padding: 12px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button.botao:hover {
+    background-color: #004495;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 30px;
+        width: 90%;
+    }
+}
