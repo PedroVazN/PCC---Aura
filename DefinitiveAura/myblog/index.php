@@ -16,7 +16,7 @@
             <img src="images/logo-senai.svg" alt="Logo SENAI">
             <img src="images/logo-ford.svg" alt="Logo Ford">
         </div>
-       <img src="images/seta.png" class="register-button">
+    
     </header>
 
     <div class="container">
