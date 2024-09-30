@@ -6,14 +6,13 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4b6;
+    font-family: 'Courier New', Courier, monospace;
     color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('DefinitiveAura/myblog/images/sise.jpg'); /* Corrigido */
+    background-image: url('/DefinitiveAura/myblog/images/banner.png'); /* Corrigido */
     background-size: cover; /* Garante que a imagem cubra toda a área */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Evita que a imagem se repita */
@@ -58,14 +57,21 @@ body {
 
 /* Container principal */
 .form-container {
-    background-color: white;
-    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.788);
+    padding: 150px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     width: 100%;
     max-width: 400px;
     margin-top: 100px; /* Espaço para o cabeçalho */
+    margin-left: auto; /* Move para a direita */
+    margin-right: 20px; /* Margem de 20px à direita */
+    padding-left: 20px; /* Margem esquerda interna */
+    padding-right: 20px; /* Margem direita interna */
 }
+
+
+
 
 h1 {
     font-size: 24px;

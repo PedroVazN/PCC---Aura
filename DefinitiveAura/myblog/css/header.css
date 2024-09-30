@@ -17,5 +17,6 @@
 }
 
 .header img {
-    height: 90px;
+    height: 140px; /* Aumente a altura para 120px ou o valor desejado */
+    /* Você pode ajustar essa altura conforme necessário */
 }

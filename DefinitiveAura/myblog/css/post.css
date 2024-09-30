@@ -1,0 +1,58 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Estilos do container */
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Estilos do card do post */
+.post-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Estilos da imagem do usuário */
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.user-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Estilos do título do post */
+.post-title {
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+}
+
+/* Estilos do conteúdo do post */
+.post-content {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Estilos da imagem do post */
+.post-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 15px;
+}
