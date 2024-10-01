@@ -7,6 +7,7 @@ if (isset($_POST['create_post'])) {
     $user_id = $_SESSION['user_id'];
     $title = $_POST['title'];
     $content = $_POST['content'];
+    
 
     // Upload da imagem
     if (isset($_FILES['post_image'])) {
@@ -21,7 +22,7 @@ if (isset($_POST['create_post'])) {
         $new_image_name = uniqid();
         $extensao = strtolower(pathinfo($image_name, PATHINFO_EXTENSION));
 
-        if ($extensao != "jpg" && $extensao != "png") {
+        if ($extensao != "jpg" && $extensao != "png" && $extensao != "gif" && $extensao != "webp") {
             die("Formato de arquivo não aceito");
         }
 
@@ -41,7 +42,7 @@ if (isset($_POST['create_post'])) {
     }
 
     // Insere o post com status 'pending' por padrão
-    $query = "INSERT INTO posts (user_id, title, content, full_path, status, nome) VALUES ('$user_id', '$title', '$content', '$full_path', 'pending', '$new_image_name')";
+    $query = "INSERT INTO posts (user_id, title, content, full_path, status, nome, formato) VALUES ('$user_id', '$title', '$content', '$full_path', 'pending', '$new_image_name', '$extensao')";
 
     if ($conn->query($query) === TRUE) {
         echo "<p>Post criado com sucesso! Aguarde a aprovação do administrador.</p>";
@@ -91,7 +92,7 @@ $sql_query = $conn->query("SELECT * FROM posts");
                 ?>
                 <tr>
                     <!-- Exibe a imagem com o caminho completo -->
-                    <td><img height="50" src="<?php echo $post['full_path']; ?>" alt="Imagem do post"></td>
+                    <td><img height="100" src="<?php echo $post['full_path']; ?>" alt="Imagem do post"></td>
 
                     <!-- Exibe o nome da imagem e link para visualizá-la -->
                     <td><a target="_blank" href="<?php echo $post['full_path']; ?>"><?php echo $post['full_path']; ?></a></td>
