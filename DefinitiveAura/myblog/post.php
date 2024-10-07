@@ -39,9 +39,11 @@ include('db.php');
                     echo "<h1 class='post-title'>" . htmlspecialchars($row['title']) . "</h1>";
                     echo "<p class='post-content'>" . nl2br(htmlspecialchars($row['content'])) . "</p>";
 
-                    // Exibe a imagem do post
+                    // Exibe a imagem do post com depuração
                     if (!empty($row['image'])) {
-                        echo "<img src='" . htmlspecialchars($row['image']) . "' class='imgpost' alt='Imagem do Post'>";
+                        $image_path = htmlspecialchars($row['image']);
+                        echo "<p>Caminho da imagem: $image_path</p>"; // Linha de depuração
+                        echo "<img src='$image_path' class='imgpost' alt='Imagem do Post'>";
                     }
                 } else {
                     echo "<p>Post não encontrado.</p>";

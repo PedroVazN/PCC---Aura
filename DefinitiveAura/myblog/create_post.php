@@ -41,7 +41,7 @@ if (isset($_POST['create_post'])) {
         $full_path = null;
     }
 
-    // Insere o post com status 'pending' por padrão
+    // Insere o post com status 'pending' por padrãoi
     $query = "INSERT INTO posts (user_id, title, content, full_path, status, nome, formato) VALUES ('$user_id', '$title', '$content', '$full_path', 'pending', '$new_image_name', '$extensao')";
 
     if ($conn->query($query) === TRUE) {
