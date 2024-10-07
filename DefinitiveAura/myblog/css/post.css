@@ -1,58 +1,70 @@
-/* Estilos gerais */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
-}
-
-/* Estilos do container */
+/* Centraliza o conteúdo da página */
 .container {
     max-width: 800px;
-    margin: auto;
-}
-
-/* Estilos do card do post */
-.post-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
     padding: 20px;
-    margin-bottom: 20px;
 }
 
-/* Estilos da imagem do usuário */
-.user-info {
+/* Estiliza o card do post */
+.post-card {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
     display: flex;
-    align-items: center;
-    margin-bottom: 15px;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.user-image {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
+/* Estrutura principal do post com imagem à esquerda e texto à direita */
+.post-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
 }
 
-/* Estilos do título do post */
-.post-title {
-    font-size: 24px;
-    margin: 0;
-    color: #333;
-}
-
-/* Estilos do conteúdo do post */
-.post-content {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #555;
-}
-
-/* Estilos da imagem do post */
-.post-image {
-    max-width: 100%;
+/* Imagem do post com tamanho reduzido */
+.post-image img {
+    max-width: 150px;
+    width: 100%;
     height: auto;
     border-radius: 8px;
-    margin-top: 15px;
+}
+
+/* Imagem do usuário */
+.user-image {
+    max-width: 50px;
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* Para deixar a imagem circular */
+}
+
+/* Detalhes do post: título e conteúdo */
+.post-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Estiliza o título do post */
+.post-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+/* Estiliza o nome do usuário */
+.user-info {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+/* Conteúdo do post */
+.post-content {
+    font-size: 16px;
+    line-height: 1.6;
 }

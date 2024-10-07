@@ -7,8 +7,9 @@ include('db.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizar Post</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/post.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <?php include('includes/header.php'); ?>
@@ -40,7 +41,7 @@ include('db.php');
 
                     // Exibe a imagem do post
                     if (!empty($row['image'])) {
-                        echo "<img src='" . htmlspecialchars($row['image']) . "' alt='Imagem do post' class='post-image'>";
+                        echo "<img src='" . htmlspecialchars($row['image']) . "' class='imgpost' alt='Imagem do Post'>";
                     }
                 } else {
                     echo "<p>Post não encontrado.</p>";
