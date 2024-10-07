@@ -19,7 +19,6 @@ body{
 }
 
 /* Estilo do banner */
-/* Estilo do banner */
 .banner {
     width: 100%; /* Garante que o banner preencha 100% da largura */
     margin-bottom: 40px;
@@ -138,7 +137,6 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 2px solid #004aad; /* Adicionando uma borda azul nos cards */
 }
 
 .card:hover {
@@ -318,7 +316,6 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     text-align: center;
-    border: 2px solid #004aad; /* Adicionando uma borda azul nos cards */
 }
 
 .card_forum:hover {

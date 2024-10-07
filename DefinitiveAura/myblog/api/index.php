@@ -1,6 +1,17 @@
 <?php
 include('db.php');
 session_start();
+
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    // Consulta para pegar a imagem de perfil e o nome do usuário logado
+    $sql = "SELECT profile_image, name FROM users WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user_data = $result->fetch_assoc();
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,29 +31,18 @@ session_start();
             <img src="images/logoa.png" alt="Logo Aura">
         </div>
         <nav class="header-nav">
-            <a href="login.php">Login</a>
-            <a href="create_post.php">Criar Post</a>
-            <?php
-            // Verifica se o usuário está logado
-            if (isset($_SESSION['id'])) {
-                $user_id = $_SESSION['id'];
-
-                // Busca a imagem do perfil do usuário no banco de dados
-                $query = $conn->query("SELECT profile_image FROM users WHERE id = $user_id");
-
-                // Verifica se a consulta retornou resultados
-                if ($query && $query->num_rows > 0) {
-                    $user = $query->fetch_assoc();
-                    $profile_image = !empty($user['profile_image']) ? $user['profile_image'] : 'default.jpg';
-
-                    // Exibe a imagem do perfil
-                    echo "<img src='uploads/$profile_image' class='userimg' alt='Imagem do Usuário' height='100'>";
-                } else {
-                    // Exibe uma imagem padrão se não encontrar a imagem do perfil
-                    echo "<img src='uploads/default.jpg' class='userimg' alt='Imagem Padrão' height='100'>";
-                }
-            }
-            ?>
+            <?php if (isset($user_data)): ?>
+                <div class="user-profile">
+                    <?php
+                    // Exibe a imagem de perfil do usuário logado, utilizando o mesmo padrão que nos posts
+                    $profile_image = !empty($user_data['profile_image']) ? htmlspecialchars($user_data['profile_image']) : 'uploads/default.jpg';
+                    echo "<img height='40px' src='$profile_image' alt='Imagem de Perfil' class='userimagem'>";
+                    ?>
+                    <span>Bem-vindo, <?php echo htmlspecialchars($user_data['name']); ?></span>
+                </div>
+            <?php else: ?>
+                <a href="login.php">Login</a>
+            <?php endif; ?>
         </nav>
     </header>
 
@@ -68,12 +68,9 @@ session_start();
                     while ($post = $sql_query->fetch_assoc()) {
                         echo "<div class='post-item'>";
 
-                        // Exibe a imagem de perfil do usuário
-                        if (!empty($post['profile_image'])) {
-                            echo "<img src='" . $post['profile_image'] . "' class='userimg' alt='Imagem do Usuário'>";
-                        } else {
-                            echo "<img src='uploads/default.jpg' alt='Imagem Padrão' class='userimg'>";
-                        }
+                        // Exibe a imagem de perfil do usuário que criou o post
+                        $profile_image_post = !empty($post['profile_image']) ? htmlspecialchars($post['profile_image']) : 'uploads/default.jpg';
+                        echo "<img src='$profile_image_post' class='userimg' alt='Imagem do Usuário'>";
 
                         echo "<div class='post-content'>";
                         echo "<h3><a href='post.php?id=" . $post['id'] . "'>" . htmlspecialchars($post['title']) . "</a></h3>";
@@ -81,8 +78,9 @@ session_start();
                         echo "<p>" . substr(htmlspecialchars($post['content']), 0, 150) . "...</p>";
                         echo "</div>";
 
+                        // Exibe a imagem do post (se houver)
                         if (!empty($post['full_path'])) {
-                            echo "<img src='" . $post['full_path'] . "' class='imgpost' alt='Imagem do Post'>";
+                            echo "<img src='" . htmlspecialchars($post['full_path']) . "' class='imgpost' alt='Imagem do Post'>";
                         }
 
                         echo "</div>";

@@ -133,3 +133,8 @@ footer {
     font-size: 14px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+.user-profile img{
+    border-radius: 25px;
+    color: #007bff;
+}
