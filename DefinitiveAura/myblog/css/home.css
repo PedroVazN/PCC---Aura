@@ -1,17 +1,16 @@
+/* Reset de estilos */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
-body{
-    background-color:#000000;
+body {
+    background-color: #ffffff; /* Altere para a cor de fundo desejada */
+    font-family: 'Roboto', sans-serif; /* Fonte para o corpo */
 }
 
-
 /* Container principal */
-
 .main-container {
     max-width: 100%;
     margin: 0 auto;
@@ -20,23 +19,21 @@ body{
 
 /* Estilo do banner */
 .banner {
-    width: 100%; /* Garante que o banner preencha 100% da largura */
+    max-width: 100%;
     margin-bottom: 40px;
     margin-top: 10px;
 }
 
 .banner-img {
-    width: 100%; /* Preenche toda a largura do banner */
-    max-height: 300px; /* Define uma altura máxima para o banner */
-    object-fit: cover; /* Faz a imagem cobrir o espaço disponível sem distorção */
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
 }
-
-
 
 /* Seção de Fórum */
 .forum {
     text-align: center;
-  margin-top: 15px;
+    margin-top: 15px;
 }
 
 .forum h3 {
@@ -45,20 +42,23 @@ body{
     margin-bottom: 20px;
 }
 
-.lin{
+.lin {
     text-decoration-line: none;
 }
 
+/* Estilo para centralizar os cards no fórum */
 .forum-options {
     display: flex;
     justify-content: center;
     gap: 50px;
+    flex-wrap: wrap;
 }
 
 .option {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 10px;
 }
 
 .option img {
@@ -72,247 +72,11 @@ body{
     color: #555;
 }
 
-
-/* Seção de Cursos Gratuitos */
-.cursos-gratuitos {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.cursos-gratuitos h3 {
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Container que alinhará os cursos verticalmente */
-.cursos-container {
-    display: flex;
-    flex-direction: column; /* Organiza os cursos em uma coluna */
-    align-items: center;    /* Centraliza os cursos no eixo horizontal */
-    gap: 20px;              /* Espaçamento entre os cursos */
-}
-
-/* Seção de Cursos Gratuitos */
-.cursos-gratuitos {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.cursos-gratuitos h3 {
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Seção de Cursos Gratuitos */
-.cursos-gratuitos {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.cursos-gratuitos h3 {
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Grade de cards na seção de cursos gratuitos */
-.novidades-grid {
-    display: flex;
-    justify-content: center; /* Centraliza os cards */
-    gap: 20px;              /* Espaçamento entre os cards */
-    flex-wrap: wrap;        /* Permite que os cards se movam para a próxima linha em telas pequenas */
-    padding: 20px;         /* Adiciona padding na grade */
-}
-
-/* Estilo para os cards */
-.card {
-    border-radius: 8px;
-    padding: 15px;          /* Ajuste de padding */
-    width: calc(33.333% - 20px); /* Ajusta a largura dos cards */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-/* Responsividade para dispositivos móveis */
-@media (max-width: 768px) {
-    .novidades-grid {
-        flex-direction: column; /* Muda para coluna em dispositivos móveis */
-        align-items: center;     /* Centraliza os cards */
-    }
-
-    .card {
-        width: 100%;             /* Ocupa a largura total em dispositivos móveis */
-        margin-bottom: 20px;
-    }
-}
-
-/* Seção de Curiosidades */
-.curiosidades {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.curiosidades h3 {
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.curiosidades img {
-    width: 70%;
-    border-radius: 10px;
-}
-
-.dot {
-    height: 15px;
-    width: 15px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.cursos-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.instagram-media {
-    max-width: 300px; /* Limita a largura das postagens */
-    margin: 10px;
-    padding: 0;
-}
-
-.cursos-gratuitos h3 {
-    margin-top: 100px;
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-/* Seção de Novidades */
-.novidades {
-    margin-top: 75px;
-    margin-bottom: 70px;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-/* Grid para os cards */
-.novidades-grid {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-/* Estilo dos cards */
-.card:hover {
-    transform: scale(1.05);
-}
-
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
-    .novidades-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-}
-
-
-.forum-options {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-}
-
-.option {
-    flex: 1;
-    margin: 10px;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.card-img {
-    max-width: 100%;
-    height: auto;
-}
-
-.card-title {
-    font-size: 1.2em;
-    margin: 10px 0;
-}
-
-.card-description {
-    color: transparent #666;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: rgb(249, 249, 249);
-    font-family: 'Roboto', sans-serif; /* Altere para a fonte desejada */
-}
-
-/* Container principal */
-.main-container {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Estilo do banner */
-.banner {
-    max-width: 100%;
-    margin-bottom: 40px;
-}
-
-.banner-img {
-    max-width: 100%;  
-}
-
-
-/* Estilo para centralizar os cards no fórum */
-.forum-options {
-    display: flex;
-    justify-content: center; /* Centraliza os cards horizontalmente */
-    gap: 50px; /* Espaçamento entre os cards */
-    flex-wrap: wrap; /* Permite que os cards sejam empilhados em telas menores */
-}
-
-.option {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .card_forum {
     background-color: #ffffff;
     border-radius: 8px;
     padding: 15px;
-    width: 500px; /* Definindo uma largura fixa para os cards */
+    width: 500px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     text-align: center;
@@ -338,15 +102,96 @@ body {
     color: #666;
 }
 
-/* Responsividade para telas menores */
+/* Seção de Cursos Gratuitos */
+.cursos-gratuitos {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cursos-gratuitos h3 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Container que alinhará os cursos verticalmente */
+.cursos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Grade de cards na seção de cursos gratuitos */
+.novidades-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.card {
+    border-radius: 8px;
+    padding: 15px;
+    width: calc(33.333% - 20px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-title {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.card-description {
+    color: #666;
+}
+
+/* Responsividade para dispositivos móveis */
 @media (max-width: 768px) {
-    .forum-options {
-        flex-direction: column; /* Empilha os cards verticalmente em telas pequenas */
-        align-items: center; /* Centraliza os cards no eixo vertical */
+    .novidades-grid, .forum-options {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .card_forum {
-        width: 100%; /* Faz com que os cards ocupem a largura total da tela */
-        max-width: 400px; /* Limita a largura dos cards em telas menores */
+    .card, .card_forum {
+        width: 100%;
+        margin-bottom: 20px;
+        max-width: 400px;
     }
+}
+
+/* Seção de Curiosidades */
+.curiosidades {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.curiosidades h3 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.curiosidades img {
+    width: 70%;
+    border-radius: 10px;
+}
+
+/* Estilo de bolinhas */
+.dot {
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
 }

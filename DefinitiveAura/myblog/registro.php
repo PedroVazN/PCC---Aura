@@ -28,7 +28,7 @@ if (isset($_POST['register'])) {
             $new_image_name = uniqid(); // Gera um nome único para a imagem
             $extensao = strtolower(pathinfo($image_name, PATHINFO_EXTENSION));
 
-            if ($extensao != "jpg" && $extensao != "png" && $extensao != "gif" && $extensao != "webp") {
+            if ($extensao != "jpg" && $extensao != "png" && $extensao != "gif" && $extensao != "webp" && $extensao != "jfif") {
                 die("Formato de arquivo não aceito");
             }
 
@@ -52,11 +52,31 @@ if (isset($_POST['register'])) {
         $stmt->bind_param('sssss', $name, $email, $password, $role, $profile_image);
 
         if ($stmt->execute()) {
-            $_SESSION['user_id'] = $conn->insert_id;
-            $_SESSION['user_name'] = $name;
-            $_SESSION['user_role'] = $role;
-            header("Location: login.php");
-            exit();
+            // Verificação do registro
+            $last_id = $conn->insert_id;
+            $checkUser = "SELECT * FROM users WHERE id='$last_id'";  // Query do SELECT
+            $verifyResult = $conn->query($checkUser);
+
+            // Exibe a query usada no SELECT e a verificação
+            echo "<p>Query de verificação: $checkUser</p>";
+
+            if ($verifyResult->num_rows > 0) {
+                echo "<p>Usuário registrado com sucesso! ID do usuário: $last_id</p>";
+                echo "<p>Caminho da imagem de perfil: $profile_image</p>";
+
+                // Exibe os detalhes do usuário inserido
+                $userData = $verifyResult->fetch_assoc();
+                echo "<p>Detalhes do usuário:</p>";
+                echo "<pre>" . print_r($userData, true) . "</pre>";
+
+                $_SESSION['user_id'] = $last_id;
+                $_SESSION['user_name'] = $name;
+                $_SESSION['user_role'] = $role;
+                header("Location: login.php");
+                exit();
+            } else {
+                echo "<p>Erro: o usuário não foi encontrado após o registro.</p>";
+            }
         } else {
             echo "<p>Erro ao registrar usuário. Tente novamente.</p>";
         }
@@ -103,6 +123,7 @@ if (isset($_POST['register'])) {
                     <input type="file" name="profile_image" accept="image/*">
                 </p>
                 <button type="submit" name="register" class="botao">Registrar</button>
+                <p>Já tem uma conta? <a href="login.php">Entrar</a></p>
             </form>
         </div>
     </div>

@@ -38,7 +38,7 @@ if (isset($_POST['login'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="css/login.css">
     <title>Login</title>
 </head>
 <body>
@@ -61,6 +61,7 @@ if (isset($_POST['login'])) {
                     <input type="password" name="login_password" placeholder="Senha" required>
                 </p>
                 <button type="submit" name="login" class="botao">Entrar</button>
+                <p>Não tem uma conta? <a href="registro.php">Registrar</a></p>
             </form>
         </div>
     </div>

@@ -9,6 +9,7 @@ body {
     background-color: #f4f7f9;
     color: #333;
     line-height: 1.6;
+    overflow-x: hidden; /* Impede rolagem horizontal */
 }
 
 header {
@@ -16,10 +17,11 @@ header {
     color: #fff;
     padding: 10px 0;
     text-align: center;
+    height: 100px;
 }
 
 .logos img {
-    width: 150px;
+    width: 90px;
 }
 
 h1 {
@@ -68,7 +70,7 @@ button {
 }
 
 button:hover {
-    background: #004aad;
+    background: #003d9a; /* Ajuste para o hover */
 }
 
 table {
@@ -105,24 +107,5 @@ a {
 }
 
 a:hover {
-    color: #004aad;
-}
-
-@media (max-width: 768px) {
-    .form-container {
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 1.5em;
-    }
-
-    button {
-        padding: 12px;
-    }
-
-    input[type="text"],
-    textarea {
-        font-size: 0.9em;
-    }
+    color: #003d9a;
 }

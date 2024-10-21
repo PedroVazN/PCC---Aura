@@ -5,136 +5,226 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
 }
 
 .container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-.post-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.post-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* Alinha os itens no topo */
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.userimg {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 20px; 
-}
-
-.post-content {
-    flex: 1;
-}
-
-.post-item h3 {
-    margin: 0;
-    font-size: 18px;
-}
-
-.post-item p {
-    margin: 5px 0;
-    font-size: 14px;
-    color: #555;
-}
-
-.post-item a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
-
-.post-item a:hover {
-    color: #007bff;
-}
-
-.search-bar {
-    width: 98%;
-    margin: 20px 0;
-}
-
-.search-bar input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    margin: 0 auto;
+    max-width: 1440px;
+    padding: 0 20px;
+    margin-top: 50px;
 }
 
 .header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 20px;
     background-color: #ffffff;
-    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: 120px;
 }
 
 .header .logo-container img {
-    width: 150px;
+    width: 180px;
 }
 
-.imgpost {
-    width: 100px; 
-    height: 100px;
-    object-fit: cover; 
+.header-nav {
+    display: flex;
+    align-items: center;
 }
 
-.sidebar {
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.user-profile img {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.icon2 {
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+}
+
+.icon2:hover {
+    transform: scale(1.1);
+}
+
+.posts-section {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
+    align-items: center; /* Centraliza os posts */
+    gap: 40px;
+    margin-top: 10px;
 }
 
-.sidebar h2 {
-    font-size: 18px;
-    font-weight: bold;
+.main-post {
+    background-color: rgba(200, 200, 200, 0.3); /* Fundo cinza semi-transparente */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Organiza a imagem e o conteúdo em colunas */
+    align-items: center;
+    justify-content: flex-start; /* Garante que o conteúdo não se sobreponha à imagem */
+    width: 100%;
+    max-width: 1000px; /* Define um limite máximo de largura */
+    height: auto; /* Deixa a altura automática para evitar overflow */
+    text-align: center;
+    overflow: hidden; /* Garante que o conteúdo não ultrapasse o card */
+    box-sizing: border-box;
 }
 
-.sidebar ul {
-    list-style: none;
-    padding: 0;
+.main-post img {
+    max-width: 100%;
+    max-height: 400px; /* Limita a altura da imagem */
+    object-fit: cover; /* Mantém a proporção da imagem */
+    border-radius: 10px;
+    margin-bottom: 20px; /* Espaçamento abaixo da imagem */
 }
 
-.sidebar ul li {
-    padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+.main-post h2 {
+    font-size: 28px; /* Tamanho do título ajustado */
+    color: #222;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-align: center;
 }
 
-.sidebar ul li img {
-    width: 30px;
-    height: 30px;
+.main-post p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    text-align: center;
+    
+}
+
+.main-post .post-description {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px;
+    max-width: 90%; /* Garante que o texto não ultrapasse os limites do card */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adiciona reticências se o texto for muito longo */
+    white-space: nowrap; /* Mantém o texto em uma única linha */
+    text-align: center;
+    justify-content: center;
+}
+
+
+.other-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+    justify-content: center;
+    align-items: center; /* Centraliza os posts menores */
+}
+
+.post-item {
+    background-color: rgba(200, 200, 200, 0.3); /* Fundo cinza semi-transparente */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 15px; /* Reduzido o padding para que o conteúdo caiba melhor */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    width: 100%; /* Adapta à largura total disponível */
+    max-width: 1100px; /* Define um limite máximo de largura */
+    height: 150px; /* Define uma altura fixa */
+    box-sizing: border-box; /* Garante que padding e borda não aumentem o tamanho */
+    overflow: hidden; /* Impede o conteúdo de sair do card */
+}
+
+.post-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.post-item-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover; /* Mantém a proporção da imagem */
+    border-radius: 10px;
+    margin-right: 20px; /* Espaçamento entre imagem e texto */
+}
+
+.post-content {
+    flex-grow: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column; /* Para alinhar título e descrição verticalmente */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    overflow: hidden;
+}
+
+.post-user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    white-space: nowrap; /* Garante que o nome do usuário não quebre */
+}
+
+.post-user img {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 10px;
 }
 
-footer {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-    color: #555;
-    font-size: 14px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.post-user span {
+    font-size: 16px;
+    font-weight: 500;
 }
 
-.user-profile img{
-    border-radius: 25px;
-    color: #007bff;
+.post-item h3 {
+    font-size: 20px;
+    color: #ff1919;
+    font-weight: 600;
+    margin-bottom: 5px; /* Pequeno espaçamento abaixo do título */
+}
+
+.post-description {
+    font-size: 14px; /* Tamanho de fonte um pouco menor para caber melhor no card */
+    color: #666;
+    white-space: nowrap; /* Garante que o texto fique em uma linha */
+    overflow: hidden;    /* Esconde o texto excedente */
+    text-overflow: ellipsis; /* Adiciona reticências quando o texto exceder o espaço */
+    margin-right: 3px;
+}
+
+
+.h1Des{
+    text-align: center;
+    font-size: 32px;
+    color: #000000;
+    margin-top: 40px;
+    font-weight: 700;
+}
+
+.aaa {
+    text-align: center;
+    font-size: 20px;
+    color: #000000;
+    margin-top: 40px;
+    font-weight: 700;
+    text-decoration: none;
 }

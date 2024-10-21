@@ -1,6 +1,36 @@
-<?php
+<?php 
 include('db.php');
+session_start(); // Certifique-se de iniciar a sessão
+
+// Verificar se o ID do post foi passado corretamente
+if (isset($_GET['id'])) {
+    $post_id = $_GET['id'];
+} else {
+    echo "<p>ID do post não fornecido.</p>";
+    exit;
+}
+
+// Verificar se o usuário está logado
+if (!isset($_SESSION['user_id'])) {
+    echo "<p>Você precisa estar logado para responder a um post.</p>";
+}
+
+// Se o formulário foi submetido (envio de resposta)
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reply_content'])) {
+    $user_id = $_SESSION['user_id'];
+    $reply_content = $_POST['reply_content'];
+
+    // Insere a resposta no banco de dados
+    $stmt = $conn->prepare("INSERT INTO responses (post_id, user_id, content) VALUES (?, ?, ?)");
+    $stmt->bind_param('iis', $post_id, $user_id, $reply_content);
+    if ($stmt->execute()) {
+        echo "<p>Resposta enviada com sucesso!</p>";
+    } else {
+        echo "<p>Erro ao enviar resposta. Tente novamente.</p>";
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,7 +39,7 @@ include('db.php');
     <title>Visualizar Post</title>
     <link rel="stylesheet" href="css/post.css">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
     <?php include('includes/header.php'); ?>
@@ -17,39 +47,82 @@ include('db.php');
     <div class="container">
         <div class="post-card">
             <?php
-            // Verificar se o ID do post foi passado corretamente
-            if (isset($_GET['id'])) {
-                $post_id = $_GET['id'];
-                $query = "SELECT p.*, u.profile_image FROM posts p JOIN users u ON p.user_id = u.id WHERE p.id = ?";
-                $stmt = $conn->prepare($query);
-                $stmt->bind_param('i', $post_id);
-                $stmt->execute();
-                $result = $stmt->get_result();
+            // Consulta para obter o post e os dados do usuário que o criou
+            $query = "SELECT p.*, u.profile_image, u.name FROM posts p JOIN users u ON p.user_id = u.id WHERE p.id = ?";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param('i', $post_id);
+            $stmt->execute();
+            $result = $stmt->get_result();
 
-                // Verifica se o post existe no banco de dados
-                if ($result->num_rows > 0) {
-                    $row = $result->fetch_assoc();
+            // Verifica se o post existe no banco de dados
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
 
-                    // Exibe a imagem do usuário
-                    echo "<div class='user-info'>";
-                    echo "<img src='" . (!empty($row['profile_image']) ? htmlspecialchars($row['profile_image']) : 'images/default.jpg') . "' alt='Imagem do usuário' class='user-image'>";
-                    echo "</div>";
+                // Exibe a imagem do usuário e o nome
+                echo "<div class='user-info'>";
+                echo "<img src='" . (!empty($row['profile_image']) ? htmlspecialchars($row['profile_image']) : 'images/default.jpg') . "' alt='Imagem do usuário' class='user-image'>";
+                echo "<h3 class='name'>" . htmlspecialchars($row['name']) . "</h3>";
+                echo "</div>";
 
-                    // Exibe o título e o conteúdo do post
-                    echo "<h1 class='post-title'>" . htmlspecialchars($row['title']) . "</h1>";
-                    echo "<p class='post-content'>" . nl2br(htmlspecialchars($row['content'])) . "</p>";
+                // Exibe o título e o conteúdo do post
+                echo "<h1 class='post-title'>" . htmlspecialchars($row['title']) . "</h1>";
+                echo "<p class='post-content'>" . nl2br(htmlspecialchars($row['content'])) . "</p>";
 
-                    // Exibe a imagem do post com depuração
-                    if (!empty($row['image'])) {
-                        $image_path = htmlspecialchars($row['image']);
-                        echo "<p>Caminho da imagem: $image_path</p>"; // Linha de depuração
-                        echo "<img src='$image_path' class='imgpost' alt='Imagem do Post'>";
-                    }
-                } else {
-                    echo "<p>Post não encontrado.</p>";
+                // Exibe a imagem do post, se houver
+                if (!empty($row['full_path'])) {
+                    $image_path = htmlspecialchars($row['full_path']);
+                    echo "<img src='$image_path' class='imgposte' alt='Imagem do Post'>";
                 }
             } else {
-                echo "<p>ID do post não fornecido.</p>";
+                echo "<p>Post não encontrado.</p>";
+            }
+            ?>
+        </div>
+
+        <!-- Formulário para enviar resposta -->
+        <div class="reply-form">
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <form action="post.php?id=<?php echo htmlspecialchars($post_id); ?>" method="POST">
+                    <textarea name="reply_content" required placeholder="Digite sua resposta aqui..."></textarea>
+                    <input type="hidden" name="post_id" value="<?php echo htmlspecialchars($post_id); ?>">
+                    <button type="submit">Enviar Resposta</button>
+                </form>
+            <?php endif; ?>
+        </div>
+
+        <!-- Exibição das respostas -->
+        <div class="responses-section">
+            <?php
+            // Consulta para obter as respostas do post
+            $query = "SELECT r.*, u.name, u.profile_image FROM responses r 
+                      JOIN users u ON r.user_id = u.id 
+                      WHERE r.post_id = ? ORDER BY r.created_at ASC";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param('i', $post_id);
+            $stmt->execute();
+            $responses = $stmt->get_result();
+
+            // Verifica se há respostas
+            if ($responses->num_rows > 0) {
+                echo "<h2>Respostas</h2>";
+                while ($response = $responses->fetch_assoc()) {
+                    echo "<div class='response-item'>";
+
+                    // Exibe a imagem de perfil do usuário que respondeu
+                    $profile_image = !empty($response['profile_image']) ? htmlspecialchars($response['profile_image']) : 'images/default.jpg';
+                    echo "<img src='$profile_image' alt='Imagem do usuário' class='user-image'>";
+
+                    // Exibe o nome do usuário e a resposta
+                    echo "<div class='response-content'>";
+                    echo "<h4>" . htmlspecialchars($response['name']) . "</h4>";
+                    echo "<p>" . nl2br(htmlspecialchars($response['content'])) . "</p>";
+                    echo "<small>Respondido em: " . date('d/m/Y H:i', strtotime($response['created_at'])) . "</small>";
+                    echo "</div>";
+
+                    echo "</div>";
+                }
+            } else {
+                echo "<p>Sem respostas ainda. Seja o primeiro a responder!</p>";
             }
             ?>
         </div>

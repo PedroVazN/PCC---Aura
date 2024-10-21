@@ -29,15 +29,21 @@ body {
     z-index: 1000;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     display: flex;
-    align-items: center;
+    justify-content: center; /* Alinha o conteúdo no centro horizontalmente */
+    align-items: center; /* Alinha o conteúdo no centro verticalmente */
     padding: 0 20px;
 }
 
 /* Estilo das Logos */
+.logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .logos img {
     margin: 0;
 }
-
 
 /* Container principal */
 .form-container {
