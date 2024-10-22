@@ -1,6 +1,6 @@
-<?php 
+<?php
 include('db.php');
-session_start(); // Certifique-se de iniciar a sessão
+session_start();
 
 // Verificar se o ID do post foi passado corretamente
 if (isset($_GET['id'])) {
@@ -15,32 +15,42 @@ if (!isset($_SESSION['user_id'])) {
     echo "<p>Você precisa estar logado para responder a um post.</p>";
 }
 
-// Se o formulário foi submetido (envio de resposta)
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reply_content'])) {
-    $user_id = $_SESSION['user_id'];
-    $reply_content = $_POST['reply_content'];
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
-    // Insere a resposta no banco de dados
-    $stmt = $conn->prepare("INSERT INTO responses (post_id, user_id, content) VALUES (?, ?, ?)");
-    $stmt->bind_param('iis', $post_id, $user_id, $reply_content);
-    if ($stmt->execute()) {
-        echo "<p>Resposta enviada com sucesso!</p>";
-    } else {
-        echo "<p>Erro ao enviar resposta. Tente novamente.</p>";
-    }
+// Função para obter a contagem de curtidas
+function get_like_count($post_id, $conn) {
+    $sql = "SELECT COUNT(*) AS like_count FROM likes WHERE post_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $post_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $data = $result->fetch_assoc();
+    return $data['like_count'];
+}
+
+// Função para verificar se o usuário curtiu o post
+function user_liked($post_id, $user_id, $conn) {
+    $sql = "SELECT * FROM likes WHERE post_id = ? AND user_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $post_id, $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->num_rows > 0;
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizar Post</title>
     <link rel="stylesheet" href="css/post.css">
     <link rel="stylesheet" href="css/header.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <?php include('includes/header.php'); ?>
 
@@ -73,6 +83,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reply_content'])) {
                     $image_path = htmlspecialchars($row['full_path']);
                     echo "<img src='$image_path' class='imgposte' alt='Imagem do Post'>";
                 }
+
+                // Exibe o botão de curtir e a contagem de likes
+                echo "<div class='like-section'>";
+                echo "<button class='like-btn' data-post-id='$post_id'>";
+                echo user_liked($post_id, $user_id, $conn) ? 'Descurtir' : 'Curtir';
+                echo "</button>";
+                echo "<span class='like-count'>" . get_like_count($post_id, $conn) . "</span> Likes";
+                echo "</div>";
+
             } else {
                 echo "<p>Post não encontrado.</p>";
             }
@@ -82,9 +101,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reply_content'])) {
         <!-- Formulário para enviar resposta -->
         <div class="reply-form">
             <?php if (isset($_SESSION['user_id'])): ?>
-                <form action="post.php?id=<?php echo htmlspecialchars($post_id); ?>" method="POST">
-                    <textarea name="reply_content" required placeholder="Digite sua resposta aqui..."></textarea>
-                    <input type="hidden" name="post_id" value="<?php echo htmlspecialchars($post_id); ?>">
+                <form id="reply-form">
+                    <textarea id="reply-content" required placeholder="Digite sua resposta aqui..."></textarea>
+                    <input type="hidden" id="post-id" value="<?php echo htmlspecialchars($post_id); ?>">
                     <button type="submit">Enviar Resposta</button>
                 </form>
             <?php endif; ?>
@@ -92,42 +111,75 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reply_content'])) {
 
         <!-- Exibição das respostas -->
         <div class="responses-section">
-            <?php
-            // Consulta para obter as respostas do post
-            $query = "SELECT r.*, u.name, u.profile_image FROM responses r 
-                      JOIN users u ON r.user_id = u.id 
-                      WHERE r.post_id = ? ORDER BY r.created_at ASC";
-            $stmt = $conn->prepare($query);
-            $stmt->bind_param('i', $post_id);
-            $stmt->execute();
-            $responses = $stmt->get_result();
-
-            // Verifica se há respostas
-            if ($responses->num_rows > 0) {
-                echo "<h2>Respostas</h2>";
-                while ($response = $responses->fetch_assoc()) {
-                    echo "<div class='response-item'>";
-
-                    // Exibe a imagem de perfil do usuário que respondeu
-                    $profile_image = !empty($response['profile_image']) ? htmlspecialchars($response['profile_image']) : 'images/default.jpg';
-                    echo "<img src='$profile_image' alt='Imagem do usuário' class='user-image'>";
-
-                    // Exibe o nome do usuário e a resposta
-                    echo "<div class='response-content'>";
-                    echo "<h4>" . htmlspecialchars($response['name']) . "</h4>";
-                    echo "<p>" . nl2br(htmlspecialchars($response['content'])) . "</p>";
-                    echo "<small>Respondido em: " . date('d/m/Y H:i', strtotime($response['created_at'])) . "</small>";
-                    echo "</div>";
-
-                    echo "</div>";
-                }
-            } else {
-                echo "<p>Sem respostas ainda. Seja o primeiro a responder!</p>";
-            }
-            ?>
+            <!-- As respostas serão carregadas aqui via AJAX -->
         </div>
     </div>
 
     <?php include('includes/footer.php'); ?>
+
+<!-- JavaScript para enviar respostas via AJAX e atualizar em tempo real -->
+<script>
+    document.getElementById('reply-form').addEventListener('submit', function(e) {
+        e.preventDefault();  // Previne o envio normal do formulário
+
+        const postId = document.getElementById('post-id').value;
+        const replyContent = document.getElementById('reply-content').value;
+
+        if (replyContent.trim() === "") {
+            alert('Por favor, insira um conteúdo válido antes de enviar.');
+            return;
+        }
+
+        // Exibe uma mensagem de carregamento (opcional)
+        const submitButton = document.querySelector('#reply-form button[type="submit"]');
+        submitButton.innerHTML = 'Enviando...';
+
+        fetch('send_reply.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `post_id=${postId}&reply_content=${encodeURIComponent(replyContent)}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById('reply-content').value = ''; // Limpa o campo de texto
+                submitButton.innerHTML = 'Enviar Resposta';  // Restaura o botão
+                loadResponses();  // Atualiza as respostas em tempo real
+            } else {
+                alert('Erro ao enviar resposta. Por favor, tente novamente.');
+                submitButton.innerHTML = 'Enviar Resposta';  // Restaura o botão
+            }
+        })
+        .catch(error => {
+            console.error('Erro na requisição:', error);
+            alert('Houve um problema ao tentar enviar a resposta.');
+            submitButton.innerHTML = 'Enviar Resposta';  // Restaura o botão
+        });
+    });
+
+    // Função para carregar as respostas em tempo real
+    function loadResponses() {
+        const postId = document.getElementById('post-id').value;
+
+        fetch(`get_responses.php?post_id=${postId}`)
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('.responses-section').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Erro ao carregar respostas:', error);
+            });
+    }
+
+    // Atualiza as respostas a cada 10 segundos
+    setInterval(loadResponses, 10000);
+
+    // Carrega as respostas quando a página for carregada
+    window.onload = loadResponses;
+</script>
+
 </body>
+
 </html>

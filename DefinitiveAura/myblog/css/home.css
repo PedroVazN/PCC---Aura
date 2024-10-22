@@ -6,11 +6,14 @@
 }
 
 body {
-    background-color: #ffffff; /* Altere para a cor de fundo desejada */
-    font-family: 'Roboto', sans-serif; /* Fonte para o corpo */
+    background-color: #ffffff; 
+    font-family: 'Roboto', sans-serif;
 }
 
-/* Container principal */
+header{
+    height: 100px;
+}
+
 .main-container {
     max-width: 100%;
     margin: 0 auto;
@@ -26,11 +29,11 @@ body {
 
 .banner-img {
     width: 100%;
-    max-height: 300px;
+    max-height: 450px;
     object-fit: cover;
 }
 
-/* Seção de Fórum */
+
 .forum {
     text-align: center;
     margin-top: 15px;
@@ -39,7 +42,8 @@ body {
 .forum h3 {
     font-size: 28px;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
+    margin-top: 60px;
 }
 
 .lin {
@@ -111,7 +115,8 @@ body {
 .cursos-gratuitos h3 {
     font-size: 28px;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 /* Container que alinhará os cursos verticalmente */
@@ -143,6 +148,19 @@ body {
     justify-content: center;
 }
 
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.cursos-gratuitos h3 {
+    color: #333;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
 .card:hover {
     transform: scale(1.05);
 }
@@ -170,28 +188,16 @@ body {
     }
 }
 
-/* Seção de Curiosidades */
-.curiosidades {
+.novidades h1{
     text-align: center;
-    margin-bottom: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: xx-large;
+    font-family: 'League Spartan', sans-serif;
 }
 
-.curiosidades h3 {
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.curiosidades img {
-    width: 70%;
-    border-radius: 10px;
-}
-
-/* Estilo de bolinhas */
-.dot {
-    height: 15px;
-    width: 15px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
+.header a{
+    background-color: #28a745; /* Cor do botão de publicar post */
+    color: white; /* Cor do texto */
+    border-radius: 5px; /* Bordas arredondadas */
 }

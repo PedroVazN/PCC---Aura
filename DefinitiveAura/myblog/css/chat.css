@@ -1,3 +1,49 @@
+.card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card h2, .card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 17px;
+    color: #313131;
+}
+.card h5{
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #6e6e6e;
+}
+
+.button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+
+/* STYLE.CSS */
+
 * {
     margin: 0;
     padding: 0;
@@ -27,7 +73,7 @@ header {
 }
 
 body {
-    font-family: 'Arial', sans-serif; /* Fonte utilizada */
+    font-family: 'League Spartan', sans-serif; /* Fonte utilizada */
     color: #333;
     display: flex;
     flex-direction: column; /* Permite que o conteúdo seja organizado verticalmente */
@@ -70,7 +116,7 @@ body {
 
 .user-profile img {
     border-radius: 50%;
-    border: 2px solid rgb(255, 255, 255); /* Borda fina preta */
+    border: 2px solid rgb(1, 1, 1); /* Borda fina preta */
     height: 40px;
 }
 
@@ -239,7 +285,7 @@ footer {
 .logo-container img {
     width: 135px;
     object-fit: contain; /* Garante que a imagem da logo se ajuste dentro do container */
-    margin-left:130px;
+    margin-left:170px;
 }
 
 /* Estilizando a imagem de perfil */

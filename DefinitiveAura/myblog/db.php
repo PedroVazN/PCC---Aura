@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost';
-$user = 'root';  // Usuário padrão do XAMPP
-$password = 'admin';  // Senha vazia por padrão
+$user = 'root';  
+$password = 'admin';  
 $dbname = 'blog_db';
 
 $conn = new mysqli($host, $user, $password, $dbname);
