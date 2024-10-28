@@ -2,44 +2,48 @@
 include('db.php');
 session_start();
 
-if (isset($_POST['post_id']) && isset($_SESSION['user_id'])) {
-    $post_id = $_POST['post_id'];
-    $user_id = $_SESSION['user_id'];
+// Verificar se o usuário está logado
+if (!isset($_SESSION['user_id'])) {
+    echo json_encode(['status' => 'error', 'message' => 'Usuário não está logado.']);
+    exit;
+}
 
-    // Verifica se o usuário já curtiu o post
-    $check_like_sql = "SELECT * FROM likes WHERE post_id = ? AND user_id = ?";
-    $stmt = $conn->prepare($check_like_sql);
+$user_id = $_SESSION['user_id'];
+
+if (isset($_POST['post_id'])) {
+    $post_id = $_POST['post_id'];
+
+    // Verificar se o usuário já curtiu o post
+    $sql = "SELECT * FROM likes WHERE post_id = ? AND user_id = ?";
+    $stmt = $conn->prepare($sql);
     $stmt->bind_param("ii", $post_id, $user_id);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        // Se já curtiu, remove o like
-        $delete_like_sql = "DELETE FROM likes WHERE post_id = ? AND user_id = ?";
-        $stmt = $conn->prepare($delete_like_sql);
+        // Se já curtiu, então remove a curtida (descurtir)
+        $sql = "DELETE FROM likes WHERE post_id = ? AND user_id = ?";
+        $stmt = $conn->prepare($sql);
         $stmt->bind_param("ii", $post_id, $user_id);
         $stmt->execute();
-        $response = array('status' => 'removed');
+        $status = 'unliked';
     } else {
-        // Se ainda não curtiu, adiciona o like
-        $add_like_sql = "INSERT INTO likes (post_id, user_id) VALUES (?, ?)";
-        $stmt = $conn->prepare($add_like_sql);
+        // Se não curtiu, então adiciona a curtida
+        $sql = "INSERT INTO likes (post_id, user_id) VALUES (?, ?)";
+        $stmt = $conn->prepare($sql);
         $stmt->bind_param("ii", $post_id, $user_id);
         $stmt->execute();
-        $response = array('status' => 'liked');
+        $status = 'liked';
     }
 
-    // Conta o número total de likes no post
-    $count_likes_sql = "SELECT COUNT(*) AS like_count FROM likes WHERE post_id = ?";
-    $stmt = $conn->prepare($count_likes_sql);
+    // Obter a nova contagem de curtidas
+    $sql = "SELECT COUNT(*) AS like_count FROM likes WHERE post_id = ?";
+    $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $post_id);
     $stmt->execute();
     $result = $stmt->get_result();
     $like_data = $result->fetch_assoc();
 
-    $response['like_count'] = $like_data['like_count'];
-
-    echo json_encode($response);
-    exit;
+    echo json_encode(['status' => $status, 'like_count' => $like_data['like_count']]);
 }
 ?>

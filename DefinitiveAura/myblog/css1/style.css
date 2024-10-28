@@ -422,3 +422,213 @@ footer {
     bottom: 0;
     width: 100%;
 }
+/* Reset e Configurações Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo-container img {
+    width: 135px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+.user-profile img {
+    border-radius: 50%;
+    border: 2px solid white;
+    height: 40px;
+}
+
+.nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav a:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.logout-button {
+    background-color: red;
+    color: white;
+}
+
+/* Centralizar e Estilizar Botões de Filtro */
+.category-filter {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 34px auto 30px;
+}
+
+.category-filter a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.category-filter a:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+/* Estilização da Seção de Posts */
+.container {
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+.posts-section .main-post-item,
+.other-posts .post-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-post-item img, .post-item-img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.main-post-item h2, .post-item h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.post-item h3 a {
+    text-decoration: none;
+    color: #333;
+}
+
+.post-item h3 a:hover {
+    color: #007BFF;
+}
+
+.other-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.h1Des {
+    margin-top: 42px;
+    font-size: 54px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'League Spartan', sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #004aad;
+    height: 90px;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container img {
+    width: 135px;
+    margin-left: 130px;
+}
+
+.user-profile img {
+    border-radius: 50%;
+    height: 40px;
+    border: 2px solid white;
+}
+
+.username {
+    color: white;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+.logout-button {
+    background-color: darkred;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.main-content {
+    padding: 100px 20px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1.h1Des, h1.outherh1 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+}
+
+.main-post-item, .post-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.post-item-img, .main-post-item img {
+    width: 100%;
+    max-height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}

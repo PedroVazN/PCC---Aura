@@ -1,0 +1,329 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5; /* Cor de fundo suave */
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3a8eea; /* Cor de fundo do cabeçalho */
+    padding: 15px 30px;
+    height: 80px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.header a {
+    background-color: #007bff; /* Cor do botão */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin-right: 20px;
+}
+
+.header a:hover {
+    background-color: #0056b3; /* Cor ao passar o mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/* Banner */
+.banner {
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.banner-img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+/* Main Container */
+.main-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Seção Novidades */
+.novidades h1 {
+    text-align: center;
+    margin: 40px 0;
+    font-size: 2.5rem;
+    font-family: 'League Spartan', sans-serif;
+    color: #333;
+}
+
+.novidades-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 15px;
+    width: calc(33.333% - 20px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Seção Fórum */
+.forum {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.forum h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 40px;
+    text-decoration: none;
+}
+
+.forum-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.option {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.card_forum {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card_forum:hover {
+    transform: scale(1.05);
+}
+
+/* Cursos Gratuitos */
+.cursos-gratuitos {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.cursos-gratuitos h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .novidades-grid,
+    .forum-options {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card,
+    .card_forum {
+        width: 100%;
+        max-width: 350px;
+        margin-bottom: 20px;
+    }
+}
+
+.ultimos-posts {
+    text-align: center;
+    margin: 30px auto;
+}
+
+.ultimos-posts h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+.post-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.post-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s ease;
+    text-align: left;
+}
+
+.post-card:hover {
+    transform: scale(1.05);
+}
+
+.post-card a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #007bff; /* Cor de fundo do cabeçalho do post */
+    color: white;
+}
+
+.user-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.post-card h3 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.post-desc {
+    padding: 15px;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Seção de Mapa */
+.mapa {
+    margin: 60px auto;
+    text-align: center;
+}
+
+.mapa h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.mapa iframe {
+    width: 100%;
+    max-width: 1200px;
+    height: 450px;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Seção de Curiosidades */
+.curiosidades {
+    background-color: #e9ecef; /* Fundo claro para um visual mais leve */
+    color: #333; /* Texto em cor mais escura */
+    padding: 40px 20px;
+    text-align: center;
+    margin: 20px auto;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.curiosidades h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333; /* Cor mais sutil para o título */
+}
+
+.curiosidade-carrossel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.arrow-button {
+    background: transparent;
+    border: none;
+    color: #666; /* Cor neutra para os botões de navegação */
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.curiosidade-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 900px;
+    max-height: 400px;
+    text-align: left;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #ffffff; /* Fundo branco para destacar o conteúdo */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+#curiosidade-img {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave na imagem */
+}
+
+#curiosidade-text {
+    font-size: 1.2rem;
+    color: #555; /* Texto em cor mais sutil */
+    margin-left: 32px;
+}
+
+.arrow-button:hover {
+    color: #007bff; /* Cor de destaque ao passar o mouse */
+}
+

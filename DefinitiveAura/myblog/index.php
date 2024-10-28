@@ -8,8 +8,8 @@
     <title>Página Principal - Blog Aura</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css1/home.css">
+    <link rel="stylesheet" href="css1/header.css">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
             <img src="images/logoazul.png" alt="Logo Aura">
             <img src="images/logo-senai.svg" alt="Logo SENAI">
         </div>
-        <a href="login.php">login</a>
+        <a href="login.php">Login</a>
     </header>
 
     <!-- Banner -->
@@ -28,7 +28,7 @@
     </section>
 
     <div class="main-container">
-        
+
         <section class="novidades">
             <h1>NOVIDADES</h1>
             <div class="novidades-grid">
@@ -67,9 +67,23 @@
                     </a>
                 </div>
             </div>
+            
         </section>
 
-        <!-- Seção de Novidades -->
+
+
+        <!-- Seção de Curiosidades -->
+        <section class="curiosidades">
+            <h2>Curiosidades</h2>
+            <div class="curiosidade-carrossel">
+                <button id="prevBtn" class="arrow-button">&#10094;</button>
+                <div class="curiosidade-content">
+                    <img id="curiosidade-img" src="images/curisiodade1.jpg" alt="Imagem Curiosidade">
+                    <p id="curiosidade-text">O estudo é focado em aprender uma profissão</p>
+                </div>
+                <button id="nextBtn" class="arrow-button">&#10095;</button>
+            </div>
+        </section>
 
         <!-- Seção de Cursos Gratuitos -->
         <section class="cursos-gratuitos">
@@ -95,10 +109,19 @@
         </section>
     </div>
 
+    <!-- Seção de Mapa -->
+    <section class="mapa">
+        <h2>Localização</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.389694877207!2d-46.6117951!3d-23.5900785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5a9bb45f3615%3A0x7e1495f23b1e1f07!2sR.%20Moreira%20de%20God%C3%B3i%2C%20226%20-%20Ipiranga%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004227-000!5e0!3m2!1spt-BR!2sbr!4v1698333440406!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
     <script src="js/carrosselInsta.js"></script>
 
     <!-- Footer -->
     <?php include('includes/footer.php'); ?>
+
 </body>
+
+<script src="js/carosselcu.js"></script>
 
 </html>

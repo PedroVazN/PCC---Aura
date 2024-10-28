@@ -38,7 +38,7 @@ if (isset($_POST['login'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/login1.css">
     <title>Login</title>
 </head>
 <body>
@@ -54,7 +54,7 @@ if (isset($_POST['login'])) {
             <form action="login.php" method="POST">
                 <p>
                     <label>E-mail</label>
-                    <input type="email" name="login_email" placeholder="@" required>
+                    <input type="text" name="login_email" placeholder="@" required>
                 </p>
                 <p>
                     <label>Senha</label>
