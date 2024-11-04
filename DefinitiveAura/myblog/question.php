@@ -21,9 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reply_content'])) {
     $reply_content = $_POST['reply_content'];
 
     // Insere a resposta no banco de dados
-    $stmt = $conn->prepare("INSERT INTO answers (question_id, user_id, content) VALUES (?, ?, ?)");
-    $stmt->bind_param('iis', $question_id, $user_id, $reply_content);
-    if ($stmt->execute()) {
+    $query = "INSERT INTO answers (question_id, user_id, content) VALUES ('$question_id', '$user_id', '$reply_content')";
+    if ($conn->query($query) === TRUE) {
         echo "<p>Resposta enviada com sucesso!</p>";
     } else {
         echo "<p>Erro ao enviar resposta. Tente novamente.</p>";
@@ -37,8 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reply_content'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizar Questão</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/question.css">
+    <link rel="stylesheet" href="css1/style.css">
+    <link rel="stylesheet" href="css1/question.css">
 </head>
 
 <header>
@@ -65,20 +64,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reply_content'])) {
         </div>
         </div>
     
-    </header>
+</header>
 <body>
     <div class="container">
         <div class="question-card">
             <?php
             // Consulta para obter a questão e os dados do usuário que a criou
-            $query = "SELECT q.*, u.profile_image, u.name FROM questions q JOIN users u ON q.user_id = u.id WHERE q.id = ?";
-            $stmt = $conn->prepare($query);
-            $stmt->bind_param('i', $question_id);
-            $stmt->execute();
-            $result = $stmt->get_result();
+            $query = "SELECT q.*, u.profile_image, u.name FROM questions q JOIN users u ON q.user_id = u.id WHERE q.id = '$question_id'";
+            $result = $conn->query($query);
 
             // Verifica se a questão existe no banco de dados
-            if ($result->num_rows > 0) {
+            if ($result && $result->num_rows > 0) {
                 $row = $result->fetch_assoc();
 
                 // Exibe a imagem do usuário e o nome
@@ -113,14 +109,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reply_content'])) {
             // Consulta para obter as respostas da questão
             $query = "SELECT a.*, u.name, u.profile_image FROM answers a 
                       JOIN users u ON a.user_id = u.id 
-                      WHERE a.question_id = ? ORDER BY a.created_at ASC";
-            $stmt = $conn->prepare($query);
-            $stmt->bind_param('i', $question_id);
-            $stmt->execute();
-            $responses = $stmt->get_result();
+                      WHERE a.question_id = '$question_id' ORDER BY a.created_at ASC";
+            $responses = $conn->query($query);
 
             // Verifica se há respostas
-            if ($responses->num_rows > 0) {
+            if ($responses && $responses->num_rows > 0) {
                 echo "<h2>Respostas</h2>";
                 while ($response = $responses->fetch_assoc()) {
                     echo "<div class='answer-item'>";

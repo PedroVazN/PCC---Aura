@@ -20,7 +20,7 @@ if (isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fórum de Perguntas e Respostas</title>
-    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css1/chat.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 </head>
 <body>
@@ -31,7 +31,7 @@ if (isset($_SESSION['user_id'])) {
                 <?php if (isset($user_data)): ?>
                     <div class="user-profile">
                         <?php
-                        $profile_image = !empty($user_data['profile_image']) ? htmlspecialchars($user_data['profile_image']) : 'uploads/default.jpg';
+                        $profile_image = !empty($user_data['profile_image']) ? htmlspecialchars($user_data['profile_image']) : 'default.jpg';
                         echo "<img height='40px' src='$profile_image' alt='Imagem de Perfil' class='userimagem'>";
                         echo "<span class='username'>" . htmlspecialchars($user_data['name']) . "</span>"; // Nome do usuário
                         ?>

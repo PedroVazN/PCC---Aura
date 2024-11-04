@@ -28,16 +28,14 @@ if (isset($_POST['register'])) {
             $new_image_name = uniqid(); // Gera um nome único para a imagem
             $extensao = strtolower(pathinfo($image_name, PATHINFO_EXTENSION));
 
-            if ($extensao != "jpg" && $extensao != "png" && $extensao != "gif" && $extensao != "webp" && $extensao != "jfif") {
+            if ($extensao != "jpg" && $extensao != "png" && $extensao != "gif" && $extensao != "webp" && $extensao != "jfif" && $extensao != "jpeg") {
                 die("Formato de arquivo não aceito");
             }
 
             // Caminho completo para armazenar no banco de dados
             $full_path = $pasta . $new_image_name . "." . $extensao;
 
-            $deu_certo = move_uploaded_file($post_image["tmp_name"], $full_path);
-
-            if ($deu_certo) {
+            if (move_uploaded_file($post_image["tmp_name"], $full_path)) {
                 $profile_image = $full_path;
             } else {
                 echo "<p>Falha ao enviar arquivo</p>";
@@ -46,25 +44,20 @@ if (isset($_POST['register'])) {
             $profile_image = 'uploads/default.jpg'; // Define uma imagem padrão
         }
 
-        // Inserção no banco de dados
-        $query = "INSERT INTO users (name, email, password, role, profile_image) VALUES (?, ?, ?, ?, ?)";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param('sssss', $name, $email, $password, $role, $profile_image);
-
-        if ($stmt->execute()) {
-            // Verificação do registro
+        // Inserção no banco de dados sem prepare
+        $query = "INSERT INTO users (name, email, password, role, profile_image) VALUES ('$name', '$email', '$password', '$role', '$profile_image')";
+        
+        if ($conn->query($query) === TRUE) {
             $last_id = $conn->insert_id;
-            $checkUser = "SELECT * FROM users WHERE id='$last_id'";  // Query do SELECT
+            $checkUser = "SELECT * FROM users WHERE id='$last_id'"; // Query do SELECT
             $verifyResult = $conn->query($checkUser);
 
-            // Exibe a query usada no SELECT e a verificação
             echo "<p>Query de verificação: $checkUser</p>";
 
             if ($verifyResult->num_rows > 0) {
                 echo "<p>Usuário registrado com sucesso! ID do usuário: $last_id</p>";
                 echo "<p>Caminho da imagem de perfil: $profile_image</p>";
 
-                // Exibe os detalhes do usuário inserido
                 $userData = $verifyResult->fetch_assoc();
                 echo "<p>Detalhes do usuário:</p>";
                 echo "<pre>" . print_r($userData, true) . "</pre>";
@@ -91,7 +84,8 @@ if (isset($_POST['register'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="css1/registro.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <title>Registro</title>
 </head>
 <body>

@@ -7,14 +7,11 @@ if (isset($_GET['post_id'])) {
     // Consulta para obter as respostas do post
     $query = "SELECT r.*, u.name, u.profile_image FROM responses r 
               JOIN users u ON r.user_id = u.id 
-              WHERE r.post_id = ? ORDER BY r.created_at ASC";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param('i', $post_id);
-    $stmt->execute();
-    $responses = $stmt->get_result();
+              WHERE r.post_id = '$post_id' ORDER BY r.created_at ASC";
+    $responses = $conn->query($query);
 
     // Verifica se há respostas
-    if ($responses->num_rows > 0) {
+    if ($responses && $responses->num_rows > 0) {
         echo "<h2>Respostas</h2>";
         while ($response = $responses->fetch_assoc()) {
             echo "<div class='response-item'>";

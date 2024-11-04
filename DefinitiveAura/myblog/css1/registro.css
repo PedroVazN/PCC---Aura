@@ -1,0 +1,137 @@
+/* Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    display: flex;
+    justify-content: flex-end; /* Centraliza o formulário */
+    align-items: center;
+    height: 100vh;
+    background-image: url('/images/banner.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Estilos do Cabeçalho */
+.header_registro {
+    background-color: #ffffff;
+    height: 90px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.logos img {
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center
+}
+
+/* Container principal */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 120px;
+    transition: transform 0.3s ease;
+    margin-right: 32px
+}
+
+.form-container:hover {
+    transform: scale(1.02);
+}
+
+/* Títulos */
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #004aad;
+}
+
+/* Estilos do Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form p {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="file"] {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form input[type="file"]:focus {
+    border-color: #004aad;
+    outline: none;
+}
+
+/* Botão Principal */
+button.botao {
+    width: 100%;
+    padding: 14px;
+    background-color: #004aad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button.botao:hover {
+    background-color: #003d9a;
+}
+
+form p:last-of-type {
+    text-align: center;
+    font-size: 14px;
+}
+
+form p:last-of-type a {
+    color: #004aad;
+    text-decoration: none;
+}
+
+form p:last-of-type a:hover {
+    text-decoration: underline;
+}
