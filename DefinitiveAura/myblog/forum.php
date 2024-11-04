@@ -20,7 +20,10 @@ $category_filter = isset($_GET['category']) ? $_GET['category'] : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fórum Aura</title>
     <link rel="stylesheet" href="css1/style.css">
+<<<<<<< HEAD
       <link rel="icon" type="image/png" href="images/favicon.png">
+=======
+>>>>>>> 9a48be218305e63711b9c157232963c994d332cc
     <link rel="stylesheet" href="css1/footer.css">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

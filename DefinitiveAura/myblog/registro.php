@@ -85,7 +85,10 @@ if (isset($_POST['register'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css1/registro.css">
+<<<<<<< HEAD
     <link rel="icon" type="image/png" href="images/favicon.png">
+=======
+>>>>>>> 9a48be218305e63711b9c157232963c994d332cc
     <title>Registro</title>
 </head>
 <body>

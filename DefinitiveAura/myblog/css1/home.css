@@ -11,6 +11,7 @@ body {
     overflow-x: hidden;
 }
 
+<<<<<<< HEAD
 header {
     display: flex;
     justify-content: center; /* Muda para centralizar a logo-container */
@@ -41,10 +42,33 @@ header {
     background-color: #42b983;
     color: white;
     padding: 10px 25px;
+=======
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3a8eea; /* Cor de fundo do cabeçalho */
+    padding: 15px 30px;
+    height: 80px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.header a {
+    background-color: #007bff; /* Cor do botão */
+    color: white;
+    padding: 10px 20px;
+>>>>>>> 9a48be218305e63711b9c157232963c994d332cc
     border-radius: 5px;
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
+<<<<<<< HEAD
     transition: all 0.3s ease;
 }
 
@@ -53,6 +77,20 @@ header {
 }
 
 
+=======
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin-right: 20px;
+}
+
+.header a:hover {
+    background-color: #0056b3; /* Cor ao passar o mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+>>>>>>> 9a48be218305e63711b9c157232963c994d332cc
 /* Banner */
 .banner {
     width: 100%;
@@ -69,7 +107,11 @@ header {
 
 /* Main Container */
 .main-container {
+<<<<<<< HEAD
     max-width: 1200px;
+=======
+    max-width: 1300px;
+>>>>>>> 9a48be218305e63711b9c157232963c994d332cc
     margin: 0 auto;
     padding: 20px;
 }
@@ -132,12 +174,17 @@ header {
 }
 
 .option {
+<<<<<<< HEAD
+=======
+    width: 100%;
+>>>>>>> 9a48be218305e63711b9c157232963c994d332cc
     max-width: 400px;
     text-align: center;
 }
 
 .card_forum {
     background-color: #ffffff;
+<<<<<<< HEAD
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -145,12 +192,19 @@ header {
     text-align: center;
     cursor: pointer;
     text-decoration: none;
+=======
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+>>>>>>> 9a48be218305e63711b9c157232963c994d332cc
 }
 
 .card_forum:hover {
     transform: scale(1.05);
 }
 
+<<<<<<< HEAD
 .card_forum img {
     width: 80px;
     height: auto;
@@ -178,11 +232,18 @@ a.lin {
 
 a.lin:hover {
     text-decoration: none;
+=======
+/* Cursos Gratuitos */
+.cursos-gratuitos {
+    text-align: center;
+    margin: 60px 0;
+>>>>>>> 9a48be218305e63711b9c157232963c994d332cc
 }
 
 .cursos-gratuitos h3 {
     font-size: 2rem;
     color: #333;
+<<<<<<< HEAD
     text-align: center;
     margin-bottom: 30px;
 }
@@ -192,6 +253,9 @@ a.lin:hover {
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
+=======
+    margin-bottom: 40px;
+>>>>>>> 9a48be218305e63711b9c157232963c994d332cc
 }
 
 /* Responsividade */
@@ -325,7 +389,10 @@ a.lin:hover {
     align-items: center;
     justify-content: center;
     gap: 20px;
+<<<<<<< HEAD
     transition: transform 0.3s;
+=======
+>>>>>>> 9a48be218305e63711b9c157232963c994d332cc
 }
 
 .arrow-button {
@@ -367,6 +434,7 @@ a.lin:hover {
     color: #007bff; /* Cor de destaque ao passar o mouse */
 }
 
+<<<<<<< HEAD
 .config-button {
     background-color: #007BFF;
     color: white;
@@ -379,3 +447,5 @@ a.lin:hover {
 .config-button:hover {
     background-color: #0056b3;
 }
+=======
+>>>>>>> 9a48be218305e63711b9c157232963c994d332cc

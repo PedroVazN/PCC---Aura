@@ -13,7 +13,10 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css1/home.css">
     <link rel="stylesheet" href="css1/header.css">
+<<<<<<< HEAD
     <link rel="icon" type="image/png" href="images/favicon.png">
+=======
+>>>>>>> 9a48be218305e63711b9c157232963c994d332cc
 </head>
 
 <body>
@@ -23,12 +26,16 @@ session_start();
             <img src="images/logoazul.png" alt="Logo Aura">
             <img src="images/logo-senai.svg" alt="Logo SENAI">
         </div>
+<<<<<<< HEAD
         <div class="button-container">
         <a href="login.php">Login</a>
         <?php if (isset($_SESSION['user_id'])): ?>
             <a href="configuracao.php" class="config-button">Configurações</a>
         <?php endif; ?>
         </div>
+=======
+        <a href="login.php">Login</a>
+>>>>>>> 9a48be218305e63711b9c157232963c994d332cc
     </header>
 
     <!-- Banner -->
@@ -76,7 +83,11 @@ session_start();
                     </a>
                 </div>
             </div>
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 9a48be218305e63711b9c157232963c994d332cc
         </section>
 
 

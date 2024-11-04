@@ -55,7 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reply_content'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizar Post</title>
     <link rel="stylesheet" href="css1/post.css">
+<<<<<<< HEAD
     <link rel="icon" type="image/png" href="images/favicon.png">
+=======
+>>>>>>> 9a48be218305e63711b9c157232963c994d332cc
     <link rel="stylesheet" href="css1/header.css">
     <link rel="stylesheet" href="css1/footer.css">
     <style>
