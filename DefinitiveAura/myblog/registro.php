@@ -15,61 +15,37 @@ if (isset($_POST['register'])) {
 
     if ($result->num_rows == 0) {
         // Upload da imagem de perfil
-        $profile_image = '';
+        $profile_image = 'uploads/profile.png'; // Define a imagem padrão
         if (isset($_FILES['profile_image']) && $_FILES['profile_image']['error'] == 0) {
             $post_image = $_FILES['profile_image'];
-
-            if ($post_image['error']) {
-                die("Falha ao enviar o arquivo");
-            }
-
             $pasta = "uploads/";
             $image_name = $post_image['name'];
             $new_image_name = uniqid(); // Gera um nome único para a imagem
             $extensao = strtolower(pathinfo($image_name, PATHINFO_EXTENSION));
 
-            if ($extensao != "jpg" && $extensao != "png" && $extensao != "gif" && $extensao != "webp" && $extensao != "jfif" && $extensao != "jpeg") {
-                die("Formato de arquivo não aceito");
-            }
+            if (in_array($extensao, ["jpg", "png", "gif", "webp", "jfif", "jpeg"])) {
+                $full_path = $pasta . $new_image_name . "." . $extensao;
 
-            // Caminho completo para armazenar no banco de dados
-            $full_path = $pasta . $new_image_name . "." . $extensao;
-
-            if (move_uploaded_file($post_image["tmp_name"], $full_path)) {
-                $profile_image = $full_path;
+                if (move_uploaded_file($post_image["tmp_name"], $full_path)) {
+                    $profile_image = $full_path;
+                } else {
+                    echo "<p>Falha ao enviar arquivo</p>";
+                }
             } else {
-                echo "<p>Falha ao enviar arquivo</p>";
+                echo "<p>Formato de arquivo não aceito</p>";
             }
-        } else {
-            $profile_image = 'uploads/default.jpg'; // Define uma imagem padrão
         }
 
-        // Inserção no banco de dados sem prepare
+        // Inserção no banco de dados
         $query = "INSERT INTO users (name, email, password, role, profile_image) VALUES ('$name', '$email', '$password', '$role', '$profile_image')";
         
         if ($conn->query($query) === TRUE) {
             $last_id = $conn->insert_id;
-            $checkUser = "SELECT * FROM users WHERE id='$last_id'"; // Query do SELECT
-            $verifyResult = $conn->query($checkUser);
-
-            echo "<p>Query de verificação: $checkUser</p>";
-
-            if ($verifyResult->num_rows > 0) {
-                echo "<p>Usuário registrado com sucesso! ID do usuário: $last_id</p>";
-                echo "<p>Caminho da imagem de perfil: $profile_image</p>";
-
-                $userData = $verifyResult->fetch_assoc();
-                echo "<p>Detalhes do usuário:</p>";
-                echo "<pre>" . print_r($userData, true) . "</pre>";
-
-                $_SESSION['user_id'] = $last_id;
-                $_SESSION['user_name'] = $name;
-                $_SESSION['user_role'] = $role;
-                header("Location: login.php");
-                exit();
-            } else {
-                echo "<p>Erro: o usuário não foi encontrado após o registro.</p>";
-            }
+            $_SESSION['user_id'] = $last_id;
+            $_SESSION['user_name'] = $name;
+            $_SESSION['user_role'] = $role;
+            header("Location: login.php");
+            exit();
         } else {
             echo "<p>Erro ao registrar usuário. Tente novamente.</p>";
         }
@@ -79,16 +55,14 @@ if (isset($_POST['register'])) {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css1/registro.css">
-<<<<<<< HEAD
     <link rel="icon" type="image/png" href="images/favicon.png">
-=======
->>>>>>> 9a48be218305e63711b9c157232963c994d332cc
     <title>Registro</title>
 </head>
 <body>

@@ -8,13 +8,13 @@
 }
 
 .footer-social {
-    background-color: #291eff;
+    background-color: #004aad;
     padding: 10px;
 }
 
 .footer-social p {
     margin: 0;
-    font-size: 1rem;
+    font-size: 1rem
 }
 
 .footer-social .social-icons a {
@@ -26,7 +26,7 @@
 }
 
 .footer-social .social-icons a:hover {
-    color: #ffcc00;
+    color: (202, 202, 202);
 }
 
 .footer-content {
@@ -45,7 +45,7 @@
 .footer-section h3 {
     font-size: 1.2rem;
     margin-bottom: 15px;
-    color: #ffcc00;
+    color: white;
 }
 
 .footer-section p, .footer-section ul {
@@ -69,7 +69,7 @@
 }
 
 .footer-section ul li a:hover {
-    color: #ffcc00;
+    color: (202, 202, 202);
 }
 
 .footer-bottom {

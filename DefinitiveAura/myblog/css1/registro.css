@@ -9,11 +9,7 @@ body {
     font-family: 'Arial', sans-serif;
     color: #333;
     display: flex;
-<<<<<<< HEAD
-    justify-content: flex-end; /* Centraliza o formulário */
-=======
-    justify-content: right; /* Centraliza o formulário */
->>>>>>> 9a48be218305e63711b9c157232963c994d332cc
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
     align-items: center;
     height: 100vh;
     background-image: url('/images/banner.png');
@@ -25,7 +21,7 @@ body {
 /* Estilos do Cabeçalho */
 .header_registro {
     background-color: #ffffff;
-    height: 90px;
+    height: 80px; /* Reduzi a altura */
     width: 100%;
     position: fixed;
     top: 0;
@@ -34,37 +30,28 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-<<<<<<< HEAD
     justify-content: center;
-=======
->>>>>>> 9a48be218305e63711b9c157232963c994d332cc
     padding: 0 20px;
 }
 
 .logos img {
     margin: 0;
-<<<<<<< HEAD
     justify-content: center;
     align-items: center;
-    text-align: center
-=======
->>>>>>> 9a48be218305e63711b9c157232963c994d332cc
+    text-align: center;
 }
 
 /* Container principal */
 .form-container {
     background-color: rgba(255, 255, 255, 0.95);
-    padding: 40px;
+    padding: 20px; /* Reduzi o padding */
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     width: 100%;
-    max-width: 400px;
-    margin-top: 120px;
+    max-width: 350px; /* Reduzi a largura máxima */
+    margin-top: 100px; /* Reduzi a distância do topo */
     transition: transform 0.3s ease;
-<<<<<<< HEAD
-    margin-right: 32px
-=======
->>>>>>> 9a48be218305e63711b9c157232963c994d332cc
+    margin-right: 32px;
 }
 
 .form-container:hover {
@@ -73,8 +60,8 @@ body {
 
 /* Títulos */
 h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 24px; /* Diminuí o tamanho da fonte */
+    margin-bottom: 15px; /* Ajustei o espaçamento */
     text-align: center;
     color: #004aad;
 }
@@ -83,7 +70,7 @@ h1 {
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px; /* Diminuí o gap entre os elementos */
 }
 
 form p {
@@ -101,10 +88,10 @@ form input[type="text"],
 form input[type="email"],
 form input[type="password"],
 form input[type="file"] {
-    padding: 12px;
+    padding: 10px; /* Reduzi o padding */
     border-radius: 5px;
     border: 1px solid #ddd;
-    font-size: 16px;
+    font-size: 14px; /* Reduzi o tamanho da fonte */
     width: 100%;
     transition: border-color 0.3s ease;
 }
@@ -120,12 +107,12 @@ form input[type="file"]:focus {
 /* Botão Principal */
 button.botao {
     width: 100%;
-    padding: 14px;
+    padding: 12px; /* Reduzi o padding */
     background-color: #004aad;
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px; /* Ajustei o tamanho da fonte */
     cursor: pointer;
     margin-top: 10px;
     transition: background-color 0.3s ease;

@@ -20,11 +20,7 @@ if (isset($_POST['create_post'])) {
         $new_image_name = uniqid();
         $extensao = strtolower(pathinfo($image_name, PATHINFO_EXTENSION));
 
-<<<<<<< HEAD
         if (!in_array($extensao, ["jpg", "png", "gif", "webp", "jfif", "jpeg" ])) {
-=======
-        if (!in_array($extensao, ["jpg", "png", "gif", "webp", "jfif"])) {
->>>>>>> 9a48be218305e63711b9c157232963c994d332cc
             die("Formato de arquivo não aceito");
         }
 
@@ -57,10 +53,7 @@ if (isset($_POST['create_post'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Post</title>
     <link rel="stylesheet" href="css1/createPost.css">
-<<<<<<< HEAD
     <link rel="icon" type="image/png" href="images/favicon.png">
-=======
->>>>>>> 9a48be218305e63711b9c157232963c994d332cc
 </head>
 
 <body>
