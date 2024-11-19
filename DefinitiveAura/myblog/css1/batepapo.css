@@ -1,0 +1,719 @@
+/* Alinhamento e espaçamento no header */
+header {
+    background: #004aad;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    /* Centraliza verticalmente todos os itens no header */
+    flex-direction: row;
+    justify-content: space-between;
+    /* Coloca espaços iguais entre os itens */
+    height: 90px;
+    padding: 0 20px;
+    /* Adiciona um pouco de espaçamento horizontal */
+}
+
+/* Centraliza a logo verticalmente */
+.logo-container {
+
+    /* Estilos Globais */
+    /* Remova margens e espaçamentos globais */
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Garanta que o conteúdo ocupe toda a tela */
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f4f4f4;
+    }
+
+    /* Evite que outros elementos adicionem bordas externas */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    /* Configurações da Header */
+    header {
+        background-color: #004aad;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 90px;
+        padding: 0 20px;
+    }
+
+    /* Logo no canto esquerdo */
+    .logo-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-container img {
+        width: 135px;
+        object-fit: contain;
+    }
+
+    /* Navegação e perfil do usuário alinhados no lado direito */
+    .nav-profile-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        /* Espaçamento entre itens */
+    }
+
+    /* Estilo da navegação */
+    .nav {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav a {
+        text-decoration: none;
+        font-weight: bold;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .nav a:hover {
+        background-color: #007BFF;
+        color: #fff;
+    }
+
+    /* Estilo do botão de publicar */
+    .nav a[href="create_post.php"] {
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+    }
+
+    .nav a[href="create_post.php"]:hover {
+        background-color: #218838;
+    }
+
+    /* Estilo do perfil do usuário */
+    .user-profile {
+        display: flex;
+        align-items: right;
+        gap: 10px;
+    }
+
+    .user-profile img {
+        border-radius: 50%;
+        border: 2px solid white;
+        height: 40px;
+    }
+
+    .username {
+        font-weight: bold;
+        color: white;
+    }
+
+
+    /* Estilizando links no menu */
+    .nav {
+        display: flex;
+        align-items: center;
+        /* Centraliza verticalmente os links */
+    }
+
+    .nav a {
+        text-decoration: none;
+        /* Remove o sublinhado dos links */
+        font-weight: bold;
+        color: #007BFF;
+        /* Cor padrão dos links */
+        padding: 10px 20px;
+        /* Adiciona espaçamento aos links */
+        transition: background-color 0.3s, color 0.3s;
+        /* Suaviza a transição no hover */
+    }
+
+    .nav a:hover {
+        background-color: #007BFF;
+        /* Cor de fundo no hover */
+        color: #fff;
+        /* Cor do texto no hover */
+    }
+
+    /* Botão 'PUBLICAR POST' */
+    .nav a[href="create_post.php"] {
+        background-color: #28a745;
+        /* Cor do botão de publicar post */
+        color: white;
+        /* Cor do texto */
+        border-radius: 5px;
+        /* Bordas arredondadas */
+    }
+
+    .nav a[href="create_post.php"]:hover {
+        background-color: #218838;
+        /* Cor do botão ao passar o mouse */
+    }
+
+
+    /* Estilo dos posts */
+    .posts-section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        /* Espaçamento entre os posts */
+    }
+
+    /* Estilo do post principal */
+    .main-post-item {
+        background-color: #fff;
+        /* Fundo do post */
+        border: 1px solid #ddd;
+        /* Borda do post */
+        padding: 20px;
+        /* Espaçamento interno do post */
+        border-radius: 8px;
+        /* Bordas arredondadas */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        /* Sombra do post */
+    }
+
+    /* Estilo das imagens do post */
+    .main-post-item img {
+        width: 100%;
+        /* Largura da imagem do post */
+        max-height: 300px;
+        /* Altura máxima da imagem */
+        object-fit: cover;
+        /* Ajusta a imagem */
+        margin-bottom: 15px;
+        /* Espaçamento inferior */
+        border-radius: 8px;
+        /* Bordas arredondadas */
+    }
+
+    /* Estilo dos títulos do post */
+    .main-post-item h2 {
+        font-size: 22px;
+        /* Tamanho do título */
+        color: #333;
+        /* Cor do título */
+        margin-bottom: 10px;
+        /* Espaçamento inferior */
+    }
+
+    /* Estilo da descrição do post */
+    .main-post-item p {
+        font-size: 16px;
+        /* Tamanho do texto */
+        color: #555;
+        /* Cor do texto */
+    }
+
+    /* Estilo dos outros posts */
+    .other-posts {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        /* Layout responsivo */
+        gap: 20px;
+        /* Espaçamento entre os posts */
+    }
+
+    /* Estilo do item de post */
+    .post-item {
+        background-color: #fff;
+        /* Fundo do item de post */
+        border: 1px solid #ddd;
+        /* Borda do item de post */
+        padding: 20px;
+        /* Espaçamento interno do item de post */
+        border-radius: 8px;
+        /* Bordas arredondadas */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        /* Sombra do item de post */
+    }
+
+    /* Estilo do conteúdo do post */
+    .post-content {
+        display: flex;
+        flex-direction: column;
+        /* Organização vertical do conteúdo */
+        gap: 10px;
+        /* Espaçamento entre elementos */
+    }
+
+    /* Estilo do usuário do post */
+    .post-user {
+        display: flex;
+        align-items: center;
+        /* Alinhamento vertical */
+        gap: 10px;
+        /* Espaçamento entre imagem e nome */
+    }
+
+    /* Estilo da imagem do usuário */
+    .post-user img {
+        width: 40px;
+        /* Largura da imagem do usuário */
+        height: 40px;
+        /* Altura da imagem do usuário */
+        border-radius: 50%;
+        /* Bordas arredondadas */
+    }
+
+    /* Estilo do título do post */
+    .post-item h3 {
+        font-size: 20px;
+        /* Tamanho do título */
+        color: #333;
+        /* Cor do título */
+    }
+
+    /* Estilo do link do título do post */
+    .post-item h3 a {
+        text-decoration: none;
+        /* Remove sublinhado */
+        color: inherit;
+        /* Cor padrão */
+    }
+
+    .post-item h3 a:hover {
+        color: #007BFF;
+        /* Cor ao passar o mouse */
+    }
+
+    /* Estilo da imagem do item de post */
+    .post-item-img {
+        width: 100%;
+        /* Largura da imagem do item */
+        height: 200px;
+        /* Altura do item */
+        object-fit: cover;
+        /* Ajusta a imagem */
+        margin-top: 15px;
+        /* Espaçamento superior */
+        border-radius: 8px;
+        /* Bordas arredondadas */
+    }
+
+    /* Footer */
+
+    display: flex;
+    align-items: center;
+    /* Garante o alinhamento vertical da logo */
+    height: 100%;
+ 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo-container img {
+    width: 135px;
+    object-fit: contain;
+    /* Garante que a imagem da logo se ajuste dentro do container */
+    margin-left: 130px;
+}
+
+/* Estilizando a imagem de perfil */
+.user-profile {
+    display: right;
+    align-items: right;
+    /* Centraliza verticalmente a imagem e o nome */
+    gap: 10px;
+}
+
+.user-profile img {
+    border-radius: 50%;
+    border: 2px solid rgb(1, 1, 1);
+    /* Borda fina preta */
+    height: 40px;
+}
+
+/* Nome do usuário branco */
+.username {
+    font-weight: bold;
+    color: white;
+}
+
+/* Estilizando links no menu */
+.nav {
+    display: flex;
+    align-items: center;
+    /* Centraliza verticalmente os links */
+}
+
+.nav a {
+    text-decoration: none;
+    /* Remove o sublinhado dos links */
+    font-weight: bold;
+    color: #007BFF;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
+    /* Suaviza a transição no hover */
+}
+
+.nav a:hover {
+    background-color: #007BFF;
+    /* Cor de fundo no hover */
+    color: #fff;
+    /* Cor do texto no hover */
+}
+
+/* Botão 'PUBLICAR POST' */
+.nav a[href="create_post.php"] {
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+}
+
+.nav a[href="create_post.php"]:hover {
+    background-color: #218838;
+}
+
+/* Botão 'SAIR' em vermelho */
+.logout-button {
+    background-color: rgb(255, 255, 255);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.logout-button:hover {
+    background-color: darkred;
+}
+
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.posts-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-post-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-post-item img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.main-post-item h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.main-post-item p {
+    font-size: 16px;
+    color: #555;
+}
+
+.other-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.post-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.post-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.post-user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.post-item h3 {
+    font-size: 20px;
+    color: #333;
+}
+
+.post-item h3 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.post-item h3 a:hover {
+    color: #007BFF;
+}
+
+.post-item-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+
+
+
+.logo-container img {
+    width: 135px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+.user-profile img {
+    border-radius: 50%;
+    border: 2px solid white;
+    height: 40px;
+}
+
+.nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav a:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.logout-button {
+    background-color: red;
+    color: white;
+}
+
+/* Centralizar e Estilizar Botões de Filtro */
+.category-filter {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 34px auto 30px;
+}
+
+.category-filter a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.category-filter a:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+/* Estilização da Seção de Posts */
+.container {
+    max-width: 1300px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+.posts-section .main-post-item,
+.other-posts .post-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-post-item img,
+.post-item-img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.main-post-item h2,
+.post-item h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.post-item h3 a {
+    text-decoration: none;
+    color: #333;
+}
+
+.post-item h3 a:hover {
+    color: #007BFF;
+}
+
+.other-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.h1Des {
+    margin-top: 42px;
+    font-size: 54px;
+}
+
+
+.logo-container img {
+    width: 135px;
+    margin-left: 50px;
+}
+
+.user-profile img {
+    border-radius: 50%;
+    height: 40px;
+    border: 2px solid white;
+}
+
+.username {
+    color: white;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+.logout-button {
+    background-color: darkred;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.main-content {
+    padding: 100px 20px 20px;
+    /* Adiciona espaçamento superior para que o conteúdo não sobreponha o cabeçalho */
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+h1.h1Des,
+h1.outherh1 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+}
+
+.main-post-item,
+.post-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.post-item-img,
+.main-post-item img {
+    width: 100%;
+    max-height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+
+.post-item {
+    background-color: #f0f0f0;
+    /* Cor padrão para posts */
+}
+
+.professor-post {
+    background-color: #fffbec;
+    /* Leve alteração na cor de fundo */
+    border-left: 5px solid #ffb300;
+    /* Linha lateral para diferenciar */
+}
+
+.professor-post h3 {
+    color: #000000;
+    /* Cor para o título dos posts de professor */
+}
+
+.professor-post .post-user {
+    font-weight: bold;
+    /* Negrito para o nome do professor */
+    color: #000000;
+    /* Cor do nome para destacar */
+}
+
+.professor-post::before {
+    content: "Professor";
+    display: inline-block;
+    background-color: #0015f6;
+    color: #fff;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 3px;
+    margin-right: 5px;
+}

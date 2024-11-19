@@ -6,7 +6,7 @@ if (isset($_POST['create_post'])) {
     $user_id = $_SESSION['user_id'];
     $title = $_POST['title'];
     $content = $_POST['content'];
-    $category = $_POST['category']; // Obtém a categoria escolhida pelo usuário
+    $category = $_POST['category'];
 
     // Verifica se uma imagem foi enviada
     if (isset($_FILES['post_image'])) {
@@ -20,7 +20,7 @@ if (isset($_POST['create_post'])) {
         $new_image_name = uniqid();
         $extensao = strtolower(pathinfo($image_name, PATHINFO_EXTENSION));
 
-        if (!in_array($extensao, ["jpg", "png", "gif", "webp", "jfif", "jpeg" ])) {
+        if (!in_array($extensao, ["jpg", "png", "gif", "webp", "jfif", "jpeg"])) {
             die("Formato de arquivo não aceito");
         }
 
@@ -31,7 +31,9 @@ if (isset($_POST['create_post'])) {
               VALUES ('$user_id', '$title', '$content', '$category', '$full_path', 'pending', '$new_image_name', '$extensao')";
 
         if ($conn->query($query) === TRUE) {
-            echo "<p>Post criado com sucesso! Aguarde a aprovação do administrador.</p>";
+            // Redireciona para o forum.php após o post ser criado com sucesso
+            header("Location: forum.php");
+            exit(); // Garante que o script pare de executar após o redirecionamento
         } else {
             echo "<p>Erro ao criar o post: " . $conn->error . "</p>";
         }
@@ -60,7 +62,7 @@ if (isset($_POST['create_post'])) {
     <header>
         <div class="logos">
             <a href="forum.php">
-            <img src="images/logobranca.png" alt="Logo Aura" class="logo">
+                <img src="images/logobranca.png" alt="Logo Aura" class="logo">
             </a>
         </div>
     </header>

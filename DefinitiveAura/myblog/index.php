@@ -11,8 +11,7 @@ session_start();
     <title>Página Principal - Blog Aura</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css1/home.css">
-    <link rel="stylesheet" href="css1/header.css">
+    <link rel="stylesheet" href="css1/home1.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 
@@ -43,20 +42,7 @@ session_start();
 
 <div class="main-container">
 
-    <section class="novidades">
-        <h1>NOVIDADES</h1>
-        <div class="novidades-grid">
-            <div class="card">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DAT5OY_t-9Z/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
-            </div>
-            <div class="card">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DAZA0WrurEA/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
-            </div>
-            <div class="card">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DAbG1s8N2hD/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Seção de Fórum -->
     <section class="forum">
@@ -84,20 +70,77 @@ session_start();
 
     </section>
 
-
-
-    <!-- Seção de Curiosidades -->
-    <section class="curiosidades">
-        <h2>Curiosidades</h2>
-        <div class="curiosidade-carrossel">
-            <button id="prevBtn" class="arrow-button">&#10094;</button>
-            <div class="curiosidade-content">
-                <img id="curiosidade-img" src="images/curisiodade1.jpg" alt="Imagem Curiosidade">
-                <p id="curiosidade-text">O estudo é focado em aprender uma profissão</p>
+    <!-- Seção Comunidades -->
+    <section class="comunidades">
+        <h3>COMUNIDADES</h3>
+        <div class="comunidade-options">
+            <div class="option">
+                <a href="ads.php" class="lin">
+                    <div class="card_forum">
+                        <img src="images/ads.png" alt="Comunidade ADS" class="card-img">
+                        <h4 class="card-title">ADS</h4>
+                        <p class="card-description">Explore conteúdos e discussões da área de Análise e Desenvolvimento de Sistemas!</p>
+                    </div>
+                </a>
             </div>
-            <button id="nextBtn" class="arrow-button">&#10095;</button>
+            <div class="option">
+                <a href="mecanica.php" class="lin">
+                    <div class="card_forum">
+                        <img src="images/mecanica.png" alt="Comunidade Mecânica" class="card-img">
+                        <h4 class="card-title">Mecânica</h4>
+                        <p class="card-description">Participe da comunidade de Mecânica e compartilhe conhecimentos técnicos!</p>
+                    </div>
+                </a>
+            </div>
+            <div class="option">
+                <a href="eletronica.php" class="lin">
+                    <div class="card_forum">
+                        <img src="images/eletronica.png" alt="Comunidade Eletrônica" class="card-img">
+                        <h4 class="card-title">Eletrônica</h4>
+                        <p class="card-description">Envolva-se com a comunidade de Eletrônica e expanda suas habilidades!</p>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
+
+
+    <section class="novidades">
+        <h1>NOVIDADES</h1>
+        <div class="novidades-grid">
+            <div class="card">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DAT5OY_t-9Z/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+            </div>
+            <div class="card">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DAZA0WrurEA/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+            </div>
+            <div class="card">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DAbG1s8N2hD/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="curiosidades">
+    <h2>Curiosidades</h2>
+    <div class="curiosidade-container">
+        <div class="barrinha" data-img="images/curisiodade1.jpg" data-desc="O SENAI qualifica milhões de trabalhadores e é o maior complexo de educação profissional da América Latina."></div>
+        <div class="barrinha" data-img="images/curisiodade2.png" data-desc="Os cursos do SENAI atendem às necessidades do mercado, atualizando estudantes em tecnologia e processos."></div>
+        <div class="barrinha" data-img="images/curisiodade3.png" data-desc="O SENAI oferece mais de 300 opções de cursos EAD, com simuladores e vídeos interativos."></div>
+        <div class="barrinha" data-img="images/curisiodade4.jpg" data-desc="O SENAI possui professores capacitados, alinhados às demandas do mercado de trabalho."></div>
+        <div class="barrinha" data-img="images/curisiodade5.png" data-desc="Com unidades em 2.700 municípios, o SENAI está presente em todo o Brasil."></div>
+        <div class="barrinha" data-img="images/curisiodade6.png" data-desc="O SENAI promove inovação e tecnologia, fortalecendo a indústria brasileira."></div>
+        <div class="barrinha" data-img="images/curisiodade7.png" data-desc="Cursos para todas as fases da vida: qualificação, técnico, graduação, mestrado e doutorado."></div>
+    </div>
+    <div class="curiosidade-detalhes">
+        <img id="curiosidade-img" src="" alt="Imagem da Curiosidade">
+        <p id="curiosidade-desc"></p>
+    </div>
+</section>
+
+
+
 
     <!-- Seção de Cursos Gratuitos -->
     <section class="cursos-gratuitos">
@@ -137,27 +180,52 @@ session_start();
 </body>
 
 <script>
-    function toggleTheme() {
-        const body = document.body;
-        const themeIcon = document.getElementById('themeIcon');
-        const chatIcon = document.querySelector('.forum-options .option:nth-child(1) .card-img');
-        const questionIcon = document.querySelector('.forum-options .option:nth-child(2) .card-img');
-        const logoImg = document.getElementById("logoImg");
+function toggleTheme() {
+    const body = document.body;
+    const themeIcon = document.getElementById('themeIcon');
+    const chatIcon = document.querySelector('.forum-options .option:nth-child(1) .card-img');
+    const questionIcon = document.querySelector('.forum-options .option:nth-child(2) .card-img');
+    const logoImg = document.getElementById("logoImg");
+    
+    // Selecionar as imagens das comunidades
+    const comunidadeIcons = document.querySelectorAll('.comunidade-options .card_forum .card-img');
 
-        body.classList.toggle('dark-mode');
+    body.classList.toggle('dark-mode');
 
-        if (body.classList.contains('dark-mode')) {
-            logoImg.src = 'images/logobranca.png';
-            themeIcon.src = 'images/sun-icon.png';
-            chatIcon.src = 'images/bate-papo-dark.png'; // Caminho para a imagem branca do botão de bate-papo
-            questionIcon.src = 'images/perguntas-dark.png'; // Caminho para a imagem branca do botão de perguntas
-        } else {
-            logoImg.src = 'images/logoazul.png'
-            themeIcon.src = 'images/moon-icon.png';
-            chatIcon.src = 'images/batepapo.png'; // Caminho original para a imagem do botão de bate-papo
-            questionIcon.src = 'images/forum.png'; // Caminho original para a imagem do botão de perguntas
-        }
+    if (body.classList.contains('dark-mode')) {
+        logoImg.src = 'images/logobranca.png';
+        themeIcon.src = 'images/sun-icon.png';
+        chatIcon.src = 'images/bate-papo-dark.png'; // Caminho para a imagem branca do botão de bate-papo
+        questionIcon.src = 'images/perguntas-dark.png'; // Caminho para a imagem branca do botão de perguntas
+
+        // Alterar as imagens das comunidades para modo escuro
+        comunidadeIcons.forEach((icon, index) => {
+            const darkIcons = [
+                'images/adsw.png',
+                'images/mecanicaw.png',
+                'images/eletronicaw.png',
+            ];
+            icon.src = darkIcons[index];
+        });
+
+    } else {
+        logoImg.src = 'images/logoazul.png';
+        themeIcon.src = 'images/moon-icon.png';
+        chatIcon.src = 'images/batepapo.png'; // Caminho original para a imagem do botão de bate-papo
+        questionIcon.src = 'images/forum.png'; // Caminho original para a imagem do botão de perguntas
+
+        // Alterar as imagens das comunidades para modo claro
+        comunidadeIcons.forEach((icon, index) => {
+            const lightIcons = [
+                'images/ads.png',
+                'images/mecanica.png',
+                'images/eletronica.png',
+            ];
+            icon.src = lightIcons[index];
+        });
     }
+}
+
 </script>
 
 <script src="js/carosselcu.js"></script>

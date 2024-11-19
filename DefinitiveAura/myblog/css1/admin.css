@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.header_admin {
+    background-color: #0044cc;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    height: 100px;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+    background-image: url('logo.png');
+    background-size: cover;
+}
+.admin-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+table th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.btn-approve, .btn-delete {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 4px;
+}
+
+.btn-approve {
+    background-color: #28a745;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+}

@@ -20,40 +20,36 @@ if (isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fórum de Perguntas e Respostas</title>
-    <link rel="stylesheet" href="css1/chat.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+    <link rel="stylesheet" href="css1/footer.css">
+    <link rel="stylesheet" href="css1/batepapo.css">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
 
-<header>
-        <div class="header">
-            <div class="user-info">
-                <?php if (isset($user_data)): ?>
-                    <div class="user-profile">
-                        <?php
-                        $profile_image = !empty($user_data['profile_image']) ? htmlspecialchars($user_data['profile_image']) : 'default.jpg';
-                        echo "<img height='40px' src='$profile_image' alt='Imagem de Perfil' class='userimagem'>";
-                        echo "<span class='username'>" . htmlspecialchars($user_data['name']) . "</span>"; // Nome do usuário
-                        ?>
-                    </div>
-                <?php endif; ?>
-            </div>
-
-            <div class="logo-container">
-                <img src="images/logobranca.png" alt="Logo Aura">
-            </div>
-
-            <div class="nav">
-                <nav>
-                <a href="logout.php" class="logout-button" onclick="confirmarLogout(event);">SAIR</a> <!-- Botão de sair em vermelho -->
-                    <a href="create_question.php">PUBLICAR PERGUNTA</a>
-                </nav>
-            </div>
+    <header class="header">
+        <div class="user-info">
+            <?php if (isset($user_data)): ?>
+                <div class="user-profile">
+                    <img height='40px' src="<?= htmlspecialchars($user_data['profile_image'] ?: 'uploads/default.jpg') ?>" alt='Imagem de Perfil'>
+                    <span class="username"><?= htmlspecialchars($user_data['name']) ?></span>
+                </div>
+            <?php endif; ?>
         </div>
+        <div class="logo-container">
+            <a href="index.php">
+                <img src="images/logobranca.png" alt="Logo Aura">
+            </a>
+        </div>
+        <nav class="nav">
+            <a href="logout.php" class="logout-button" onclick="confirmarLogout(event);">SAIR</a>
+            <a href="create_question.php">PERGUNTAR</a>
+        </nav>
     </header>
-
+    <br>
     <h1 class="h1Des">Perguntas Recentes</h1>
-
+    <br>
     <div class="container">
         <!-- Seção principal para exibir perguntas e respostas -->
         <section class="qa-section">
@@ -68,7 +64,7 @@ if (isset($_SESSION['user_id'])) {
                 if ($result_main->num_rows > 0) {
                     $main_question = $result_main->fetch_assoc();
                     echo "<div class='card'>"; // Card container
-                    echo "<h2>" .htmlspecialchars($main_question['title']) . "</h2>";
+                    echo "<h2>" . htmlspecialchars($main_question['title']) . "</h2>";
                     echo "<h4>Perguntado por: " . htmlspecialchars($main_question['name']) . "</h4>";
                     echo "<br><p>" . htmlspecialchars($main_question['content']) . "</p>";
 
@@ -129,7 +125,7 @@ if (isset($_SESSION['user_id'])) {
         </section>
     </div>
 
-    <?php include('includes/footer.php'); ?>
+
 
     <script>
         function confirmarLogout(event) {
@@ -147,6 +143,8 @@ if (isset($_SESSION['user_id'])) {
             });
         }
     </script>
+
+    <?php include('includes/footer.php'); ?>
 </body>
 
 </html>

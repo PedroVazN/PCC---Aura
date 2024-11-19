@@ -12,7 +12,7 @@ body {
     justify-content: flex-end; /* Alinha o formulário à direita */
     align-items: center;
     height: 100vh;
-    background-image: url('/images/banner.png');
+    background-image: url('myblog/images/banner.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -139,4 +139,14 @@ form p:last-of-type a:hover {
     text-decoration: underline;
 }
 
-
+/* Media Query para telas pequenas */
+@media (max-width: 768px) {
+    body {
+        justify-content: center; /* Centraliza o formulário */
+        padding-right: 0; /* Remove a margem direita */
+    }
+    .form-container {
+        margin-top: 20px; /* Ajusta a margem superior */
+        max-width: 100%; /* Permite que o formulário ocupe a largura total em telas menores */
+    }
+}

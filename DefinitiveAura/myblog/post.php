@@ -34,17 +34,17 @@ function user_liked($post_id, $user_id, $conn)
     return mysqli_num_rows($result) > 0;
 }
 
-// Se o formulário foi submetido (envio de resposta)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reply_content'])) {
     $reply_content = mysqli_real_escape_string($conn, $_POST['reply_content']);
     $sql = "INSERT INTO responses (post_id, user_id, content) VALUES ('$post_id', '$user_id', '$reply_content')";
-    
+
     if (mysqli_query($conn, $sql)) {
         echo "<p>Resposta enviada com sucesso!</p>";
     } else {
         echo "<p>Erro ao enviar resposta. Tente novamente.</p>";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -68,12 +68,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reply_content'])) {
 </head>
 
 <body>
-<header>
+    <header>
         <div class="logos">
             <img src="images/logobranca.png" alt="Logo Aura" class="logo">
         </div>
     </header>
-  
+
 
     <div class="container">
         <div class="post-card">

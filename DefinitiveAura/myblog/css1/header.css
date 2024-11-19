@@ -1,22 +1,96 @@
+/* Reset e Configurações Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do Header */
 .header {
-    background-color: #ffffff;
-    padding: 20px 0;
+    background-color: #004aad;
+    height: 90px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Logo */
 .logo-container {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 20px;
-    flex: 1;
+    height: 100%;
+    margin-left: 130px;
 }
 
-.header img {
-    height: 140px; /* Aumente a altura para 120px ou o valor desejado */
-    /* Você pode ajustar essa altura conforme necessário */
+.logo-container img {
+    width: 135px;
+    object-fit: contain;
+}
+
+/* Perfil do Usuário */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-profile img {
+    border-radius: 50%;
+    border: 2px solid white;
+    height: 40px;
+}
+
+.username {
+    color: white;
+    font-weight: bold;
+}
+
+/* Links do Menu */
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav a:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+/* Botão de Publicação */
+.nav a[href="create_post.php"] {
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+}
+
+.nav a[href="create_post.php"]:hover {
+    background-color: #218838;
+}
+
+/* Botão de Logout */
+.logout-button {
+    background-color: darkred;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.logout-button:hover {
+    background-color: red;
 }

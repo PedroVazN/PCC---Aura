@@ -4,307 +4,10 @@
     box-sizing: border-box;
 }
 
-/* Alinhamento e espaçamento no header */
 header {
     background: #004aad;
 }
 
-.header {
-    display: flex;
-    align-items: center; /* Centraliza verticalmente todos os itens no header */
-    flex-direction: row;
-    justify-content: space-between; /* Coloca espaços iguais entre os itens */
-    height: 90px;
-    padding: 0 20px; /* Adiciona um pouco de espaçamento horizontal */
-}
-
-/* Centraliza a logo verticalmente */
-.logo-container {/* Estilos Globais */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif; /* Fonte utilizada */
-    color: #333;
-    display: flex;
-    flex-direction: column; /* Permite que o conteúdo seja organizado verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
-    background-color: #f4f4f4; /* Cor de fundo */
-}
-
-/* Estilos do Cabeçalho */
-.header {
-    background-color: #004aad; /* Cor de fundo do cabeçalho */
-    height: 90px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between; /* Distribui os elementos */
-    align-items: center; /* Alinha o conteúdo verticalmente */
-    padding: 0 20px; /* Adiciona espaçamento lateral */
-}
-
-/* Estilo das Logos */
-.logo-container {
-    display: flex;
-    align-items: center; /* Centraliza verticalmente a logo */
-}
-
-.logo-container img {
-    width: 135px; /* Largura da logo */
-}
-
-/* Estilo da imagem de perfil */
-.user-profile {
-    display: flex;
-    align-items: center; /* Centraliza verticalmente a imagem e o nome */
-    gap: 10px;
-}
-
-.user-profile img {
-    border-radius: 50%;
-    border: 2px solid rgb(255, 255, 255); /* Borda fina preta */
-    height: 40px;
-}
-
-/* Nome do usuário */
-.username {
-    font-weight: bold;
-    color: white; /* Cor do nome do usuário */
-}
-
-/* Estilizando links no menu */
-.nav {
-    display: flex;
-    align-items: center; /* Centraliza verticalmente os links */
-}
-
-.nav a {
-    text-decoration: none; /* Remove o sublinhado dos links */
-    font-weight: bold;
-    color: #007BFF; /* Cor padrão dos links */
-    padding: 10px 20px; /* Adiciona espaçamento aos links */
-    transition: background-color 0.3s, color 0.3s; /* Suaviza a transição no hover */
-}
-
-.nav a:hover {
-    background-color: #007BFF; /* Cor de fundo no hover */
-    color: #fff; /* Cor do texto no hover */
-}
-
-/* Botão 'PUBLICAR POST' */
-.nav a[href="create_post.php"] {
-    background-color: #28a745; /* Cor do botão de publicar post */
-    color: white; /* Cor do texto */
-    border-radius: 5px; /* Bordas arredondadas */
-}
-
-.nav a[href="create_post.php"]:hover {
-    background-color: #218838; /* Cor do botão ao passar o mouse */
-}
-
-/* Outros estilos existentes no projeto */
-.container {
-    max-width: 1200px; /* Largura máxima da container */
-    margin: 100px auto 20px; /* Espaçamento superior e inferior */
-    padding: 20px; /* Adiciona espaçamento interno */
-    background-color: rgba(255, 255, 255, 0.95); /* Fundo da container */
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra */
-}
-
-/* Estilo dos posts */
-.posts-section {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Espaçamento entre os posts */
-}
-
-/* Estilo do post principal */
-.main-post-item {
-    background-color: #fff; /* Fundo do post */
-    border: 1px solid #ddd; /* Borda do post */
-    padding: 20px; /* Espaçamento interno do post */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra do post */
-}
-
-/* Estilo das imagens do post */
-.main-post-item img {
-    width: 100%; /* Largura da imagem do post */
-    max-height: 300px; /* Altura máxima da imagem */
-    object-fit: cover; /* Ajusta a imagem */
-    margin-bottom: 15px; /* Espaçamento inferior */
-    border-radius: 8px; /* Bordas arredondadas */
-}
-
-/* Estilo dos títulos do post */
-.main-post-item h2 {
-    font-size: 22px; /* Tamanho do título */
-    color: #333; /* Cor do título */
-    margin-bottom: 10px; /* Espaçamento inferior */
-}
-
-/* Estilo da descrição do post */
-.main-post-item p {
-    font-size: 16px; /* Tamanho do texto */
-    color: #555; /* Cor do texto */
-}
-
-/* Estilo dos outros posts */
-.other-posts {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Layout responsivo */
-    gap: 20px; /* Espaçamento entre os posts */
-}
-
-/* Estilo do item de post */
-.post-item {
-    background-color: #fff; /* Fundo do item de post */
-    border: 1px solid #ddd; /* Borda do item de post */
-    padding: 20px; /* Espaçamento interno do item de post */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra do item de post */
-}
-
-/* Estilo do conteúdo do post */
-.post-content {
-    display: flex;
-    flex-direction: column; /* Organização vertical do conteúdo */
-    gap: 10px; /* Espaçamento entre elementos */
-}
-
-/* Estilo do usuário do post */
-.post-user {
-    display: flex;
-    align-items: center; /* Alinhamento vertical */
-    gap: 10px; /* Espaçamento entre imagem e nome */
-}
-
-/* Estilo da imagem do usuário */
-.post-user img {
-    width: 40px; /* Largura da imagem do usuário */
-    height: 40px; /* Altura da imagem do usuário */
-    border-radius: 50%; /* Bordas arredondadas */
-}
-
-/* Estilo do título do post */
-.post-item h3 {
-    font-size: 20px; /* Tamanho do título */
-    color: #333; /* Cor do título */
-}
-
-/* Estilo do link do título do post */
-.post-item h3 a {
-    text-decoration: none; /* Remove sublinhado */
-    color: inherit; /* Cor padrão */
-}
-
-.post-item h3 a:hover {
-    color: #007BFF; /* Cor ao passar o mouse */
-}
-
-/* Estilo da imagem do item de post */
-.post-item-img {
-    width: 100%; /* Largura da imagem do item */
-    height: 200px; /* Altura do item */
-    object-fit: cover; /* Ajusta a imagem */
-    margin-top: 15px; /* Espaçamento superior */
-    border-radius: 8px; /* Bordas arredondadas */
-}
-
-/* Footer */
-footer {
-    background-color: #333; /* Cor do fundo do rodapé */
-    color: #fff; /* Cor do texto do rodapé */
-    text-align: center; /* Alinhamento do texto */
-    padding: 20px 0; /* Espaçamento superior e inferior */
-    position: relative; /* Posição relativa */
-    bottom: 0; /* Alinhamento na parte inferior */
-    width: 100%; /* Largura total */
-}
-
-    display: flex;
-    align-items: center; /* Garante o alinhamento vertical da logo */
-    height: 100%; /* O mesmo tamanho do header */
-}
-
-.logo-container img {
-    width: 135px;
-    object-fit: contain; /* Garante que a imagem da logo se ajuste dentro do container */
-    margin-left:130px;
-}
-
-/* Estilizando a imagem de perfil */
-.user-profile {
-    display: flex;
-    align-items: center; /* Centraliza verticalmente a imagem e o nome */
-    gap: 10px;
-}
-
-.user-profile img {
-    border-radius: 50%;
-    border: 2px solid rgb(1, 1, 1); /* Borda fina preta */
-    height: 40px;
-}
-
-/* Nome do usuário branco */
-.username {
-    font-weight: bold;
-    color: white;
-}
-
-/* Estilizando links no menu */
-.nav {
-    display: flex;
-    align-items: center; /* Centraliza verticalmente os links */
-}
-
-.nav a {
-    text-decoration: none; /* Remove o sublinhado dos links */
-    font-weight: bold;
-    color: #007BFF;
-    padding: 10px 20px;
-    transition: background-color 0.3s, color 0.3s; /* Suaviza a transição no hover */
-}
-
-.nav a:hover {
-    background-color: #007BFF; /* Cor de fundo no hover */
-    color: #fff; /* Cor do texto no hover */
-}
-
-/* Botão 'PUBLICAR POST' */
-.nav a[href="create_post.php"] {
-    background-color: #28a745;
-    color: white;
-    border-radius: 5px;
-}
-
-.nav a[href="create_post.php"]:hover {
-    background-color: #218838;
-}
-
-/* Botão 'SAIR' em vermelho */
-.logout-button {
-    background-color: rgb(255, 255, 255);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.logout-button:hover {
-    background-color: darkred;
-}
-
-/* Outros estilos existentes no projeto */
 body {
     font-family: 'League Spartan', sans-serif;
     margin: 0;
@@ -319,10 +22,58 @@ h1 {
     color: #333;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 2px solid #333;
+    z-index: 100;
+    position: sticky;
+    top: 0;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 50px;
+}
+
+.user-profile img {
+    border-radius: 50%;
+}
+
+.username {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* Logo */
+.logo-container img {
+    width: 120px;
+    transition: transform 0.2s ease;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container img:hover {
+    transform: scale(1.1);
+}
+
+/* Navegação */
+.nav a {
+    color: #eaeaea;
+    text-decoration: none;
+    margin-left: 1rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #f39c12;
 }
 
 .posts-section {
@@ -412,62 +163,11 @@ h1 {
     border-radius: 8px;
 }
 
-/* Footer */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-/* Reset e Configurações Gerais */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.logo-container img {
-    width: 135px;
-}
-
-.user-profile {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: white;
-}
-
-.user-profile img {
-    border-radius: 50%;
-    border: 2px solid white;
-    height: 40px;
-}
-
-.nav a {
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.nav a:hover {
-    background-color: #007BFF;
-    color: #fff;
-}
-
-.logout-button {
-    background-color: red;
-    color: white;
-}
-
 /* Centralizar e Estilizar Botões de Filtro */
 .category-filter {
     display: flex;
+    flex-wrap: wrap;
+    /* Permite que os itens se movam para a linha seguinte quando necessário */
     justify-content: center;
     gap: 10px;
     margin: 34px auto 30px;
@@ -481,12 +181,33 @@ footer {
     border: 1px solid #007BFF;
     border-radius: 5px;
     transition: all 0.3s;
+    flex: 1 1 30%;
+    /* Ajusta o tamanho dos itens para ocupar 30% da largura */
+    text-align: center;
+    /* Centraliza o texto nos botões */
 }
 
 .category-filter a:hover {
     background-color: #007BFF;
     color: #fff;
 }
+
+/* Para telas menores que 768px, organiza em 2 categorias por linha */
+@media (max-width: 768px) {
+    .category-filter a {
+        flex: 1 1 45%;
+        /* Ajusta para 2 categorias por linha em telas menores */
+    }
+}
+
+/* Para telas menores que 480px, organiza em 1 categoria por linha */
+@media (max-width: 480px) {
+    .category-filter a {
+        flex: 1 1 100%;
+        /* Ajusta para 1 categoria por linha em telas muito pequenas */
+    }
+}
+
 
 /* Estilização da Seção de Posts */
 .container {
@@ -496,6 +217,7 @@ footer {
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 50px;
+
 }
 
 .posts-section .main-post-item,
@@ -507,7 +229,8 @@ footer {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.main-post-item img, .post-item-img {
+.main-post-item img,
+.post-item-img {
     width: 100%;
     max-height: 250px;
     object-fit: cover;
@@ -515,7 +238,8 @@ footer {
     margin-bottom: 15px;
 }
 
-.main-post-item h2, .post-item h3 {
+.main-post-item h2,
+.post-item h3 {
     font-size: 22px;
     color: #333;
     margin-bottom: 10px;
@@ -541,62 +265,9 @@ footer {
     font-size: 54px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'League Spartan', sans-serif;
-    color: #333;
-    background-color: #f4f4f4;
-}
-
-.header {
-    background-color: #004aad;
-    height: 90px;
-    width: 100%;
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.logo-container img {
-    width: 135px;
-    margin-left: 130px;
-}
-
-.user-profile img {
-    border-radius: 50%;
-    height: 40px;
-    border: 2px solid white;
-}
-
-.username {
-    color: white;
-}
-
-.nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-    margin: 0 10px;
-}
-
-.logout-button {
-    background-color: darkred;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-}
-
 .main-content {
     padding: 100px 20px 20px;
+    /* Adiciona espaçamento superior para que o conteúdo não sobreponha o cabeçalho */
     max-width: 1200px;
     margin: 0 auto;
     background: white;
@@ -604,32 +275,37 @@ body {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-h1.h1Des, h1.outherh1 {
-    text-align: center;
-    color: #333;
-    margin-top: 20px;
+
+.post-item {
+    background-color: #f0f0f0;
+
 }
 
-.main-post-item, .post-item {
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+.professor-post {
+    background-color: #fffbec;
+    border-left: 5px solid #0400ff;
 }
 
-.post-item-img, .main-post-item img {
-    width: 100%;
-    max-height: 200px;
-    border-radius: 8px;
-    object-fit: cover;
+.professor-post h3 {
+    color: #000000;
+    /* Cor para o título dos posts de professor */
 }
 
-.footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
+.professor-post .post-user {
+    font-weight: bold;
+    /* Negrito para o nome do professor */
+    color: #000000;
+    /* Cor do nome para destacar */
 }
 
+.professor-post::before {
+    content: "Professor";
+    display: inline-block;
+    background-color: #0015f6;
+    color: #fff;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 3px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}

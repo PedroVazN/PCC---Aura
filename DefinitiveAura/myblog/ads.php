@@ -1,39 +1,35 @@
 <?php
 include('db.php');
+
 session_start();
+
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $sql = "SELECT curso FROM users WHERE id = $user_id";
+    $result = $conn->query($sql);
+    $user_data = $result->fetch_assoc();
+
+    // Verifica se o usuário é do curso de ADS
+    if ($user_data['curso'] != 'ads') {
+        header("Location: acesso_negado.php");
+        exit();
+    }
+}
 ?>
+
+<?php include('includes/header.php'); ?> <!-- Inclusão do header -->
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Comunidade ADS</title>
-    <link rel="stylesheet" href="css1/style.css">
+    <title>Área Exclusiva ADS</title>
+    <link rel="stylesheet" href="css1/home1.css">
 </head>
 <body>
-    <header>
-        <h1>Comunidade ADS</h1>
-    </header>
-    <main>
-        <section class="posts-section">
-            <?php
-            // Exibe os posts da categoria 'ADS'
-            $sql_query = "SELECT posts.*, users.name FROM posts 
-                          INNER JOIN users ON posts.user_id = users.id 
-                          WHERE users.course = 'ADS' ORDER BY posts.created_at DESC";
-            $result = $conn->query($sql_query);
-
-            if ($result->num_rows > 0) {
-                while ($post = $result->fetch_assoc()) {
-                    echo "<div class='post-item'>";
-                    echo "<h3>" . htmlspecialchars($post['title']) . "</h3>";
-                    echo "<p>" . htmlspecialchars($post['content']) . "</p>";
-                    echo "</div>";
-                }
-            } else {
-                echo "<p>Sem posts na comunidade ADS.</p>";
-            }
-            ?>
-        </section>
-    </main>
+    <h1>Bem-vindo à área exclusiva de ADS!</h1>
+    <!-- Conteúdo específico para alunos e professores de ADS -->
 </body>
 </html>
+
+<?php include('includes/footer.php'); ?> <!-- Inclusão do footer -->
